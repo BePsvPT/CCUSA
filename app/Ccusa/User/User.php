@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Ccusa;
+namespace App\Ccusa\User;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Ccusa\Core\Entity;
 
-class User extends Model
+class User extends Entity
 {
     /**
      * The database table used by the model.
