@@ -13,6 +13,8 @@
 
 /** @var \Illuminate\Routing\Router $router */
 
-$router->get('/', function () {
-    return view('welcome');
-});
+$router->get('/', ['as' => 'home', 'uses' => 'HomeController@home']);
+
+$router->get('zinc', ['as' => 'zinc', 'uses' => 'HomeController@zinc']);
+
+$router->get('document', ['as' => 'document', 'uses' => 'HomeController@document']);
