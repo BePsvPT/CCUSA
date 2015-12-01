@@ -2,7 +2,7 @@
 
 namespace App\Http;
 
-use Bepsvpt\LaravelSecurityHeader\SecurityHeaderServiceProvider;
+use Bepsvpt\LaravelSecurityHeader\SecurityHeaderMiddleware;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode;
@@ -17,7 +17,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
-        SecurityHeaderServiceProvider::class,
+        SecurityHeaderMiddleware::class,
         CheckForMaintenanceMode::class,
         Middleware\EncryptCookies::class,
         AddQueuedCookiesToResponse::class,
