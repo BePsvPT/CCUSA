@@ -5,12 +5,12 @@
         <div class="col s12 m6 offset-l1 l5">
             <div class="card hoverable">
                 <div class="card-image">
-                    <a href="{{ route('zinc') }}">
-                        <img src="{{ asset('assets/images/guide/zinc.png') }}">
+                    <a href="{{ route('zinc.index') }}">
+                        <img src="{{ asset('assets/media/images/general/guide/zinc.png') }}">
                     </a>
                 </div>
                 <div class="card-action">
-                    <a href="{{ route('zinc') }}" class="flow-text">
+                    <a href="{{ route('zinc.index') }}" class="flow-text">
                         <span>會刊 <i class="fa fa-external-link-square"></i></span>
                     </a>
                 </div>
@@ -21,7 +21,7 @@
             <div class="card hoverable">
                 <div class="card-image">
                     <a href="{{ route('document') }}">
-                        <img src="{{ asset('assets/images/guide/document.png') }}">
+                        <img src="{{ asset('assets/media/images/general/guide/document.png') }}">
                     </a>
                 </div>
                 <div class="card-action">

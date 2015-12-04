@@ -3,9 +3,13 @@
 namespace App\Ccusa\User;
 
 use App\Ccusa\Core\Entity;
+use Illuminate\Auth\Authenticatable;;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 
-class User extends Entity
+class User extends Entity implements AuthenticatableContract
 {
+    use Authenticatable;
+
     /**
      * The database table used by the model.
      *

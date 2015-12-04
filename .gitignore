@@ -2,6 +2,7 @@ vendor/
 node_modules/
 .idea/
 public/assets/css/
+public/assets/js/
 
 Homestead.yaml
 Homestead.json

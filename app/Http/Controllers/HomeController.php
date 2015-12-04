@@ -17,14 +17,6 @@ class HomeController extends Controller
     {
         return view('home');
     }
-
-    /**
-     * 會刊首頁
-     */
-    public function zinc()
-    {
-        //
-    }
     
     /**
      * 文件下載首頁
@@ -32,5 +24,10 @@ class HomeController extends Controller
     public function document()
     {
         //
+    }
+
+    public function signIn()
+    {
+        return redirect()->home();
     }
 }

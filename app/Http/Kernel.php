@@ -2,12 +2,7 @@
 
 namespace App\Http;
 
-use Bepsvpt\LaravelSecurityHeader\SecurityHeaderMiddleware;
-use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
-use Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode;
-use Illuminate\Session\Middleware\StartSession;
-use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class Kernel extends HttpKernel
 {
@@ -17,13 +12,14 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
-        SecurityHeaderMiddleware::class,
-        CheckForMaintenanceMode::class,
+        \Bepsvpt\LaravelSecurityHeader\SecurityHeaderMiddleware::class,
+        \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
         Middleware\EncryptCookies::class,
-        AddQueuedCookiesToResponse::class,
-        StartSession::class,
-        ShareErrorsFromSession::class,
+        \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+        \Illuminate\Session\Middleware\StartSession::class,
+        \Illuminate\View\Middleware\ShareErrorsFromSession::class,
         Middleware\VerifyCsrfToken::class,
+        Middleware\BreadcrumbMiddleware::class,
     ];
 
     /**
@@ -32,6 +28,6 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        //
+        'auth.basic' => Middleware\AuthenticateWithBasicAuth::class,
     ];
 }

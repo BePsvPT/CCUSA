@@ -48,6 +48,18 @@ return [
             'root'   => storage_path('app'),
         ],
 
+        'media' => [
+            'zinc' => [
+                'driver' => 'local',
+                'root'   => public_path('assets/media/images/zinc'),
+            ],
+
+            'default' => [
+                'driver' => 'local',
+                'root'   => public_path('assets/media/default'),
+            ]
+        ],
+
         'ftp' => [
             'driver'   => 'ftp',
             'host'     => 'ftp.example.com',

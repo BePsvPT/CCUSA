@@ -9,8 +9,10 @@
         "laravel/framework": "5.1.*",
         "bepsvpt/laravel-security-header": "~1.0",
         "doctrine/dbal": "~2.5",
+        "laravelcollective/html": "~5.1",
         "nesbot/carbon": "~1.21",
-        "predis/predis": "~1.0"
+        "predis/predis": "~1.0",
+        "spatie/laravel-medialibrary": "~3.11"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "~2.0",

@@ -22,6 +22,10 @@ elixir(function(mix) {
         'app.scss'
     ], 'public/assets/css');
 
+    mix.scripts([
+        'app.js'
+    ], 'public/assets/js');
+
     if ('true' === process.env.BROWSER_SYNC) {
         mix.browserSync({
             proxy: 'localhost:8000'
