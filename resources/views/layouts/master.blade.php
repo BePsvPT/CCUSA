@@ -6,6 +6,7 @@
         <meta property="og:title" content="國立中正大學學生會">
         <meta property="og:type" content="website">
         <meta property="og:url" content="{{ route('home') }}">
+        <meta property="og:image" content="{{ asset('assets/media/images/general/logo/ccusa.png') }}">
         <meta property="og:locale" content="zh_TW">
         <title>國立中正大學學生會</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/css/materialize.min.css">
@@ -14,11 +15,11 @@
         <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
     </head>
     <body class="yellow lighten-5">
-        <header></header>
+        <header class="container">
+            @include('layouts.breadcrumb')
+        </header>
 
         <main class="container">
-            @include('layouts.breadcrumb')
-
             @yield('main')
         </main>
 

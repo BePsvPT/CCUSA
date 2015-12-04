@@ -8,6 +8,4 @@
             </div>
         </div>
     </nav>
-
-    <br>
 @endif
