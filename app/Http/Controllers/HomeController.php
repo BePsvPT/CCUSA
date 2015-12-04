@@ -26,6 +26,11 @@ class HomeController extends Controller
         //
     }
 
+    /**
+     * 登入
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function signIn()
     {
         return redirect()->home();
