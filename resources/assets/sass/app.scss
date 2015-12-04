@@ -17,6 +17,14 @@ main {
   margin-top: 35px !important
 }
 
-.breadcrumb:first-child {
-  margin-left: 20px;
+nav {
+  height: auto;
+}
+
+.breadcrumb {
+  &:first-child {
+    margin-left: 20px;
+  }
+
+  display: inline-block;
 }
