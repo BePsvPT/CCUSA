@@ -147,6 +147,7 @@ return [
 
         Bepsvpt\LaravelSecurityHeader\SecurityHeaderServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Jenssegers\Agent\AgentServiceProvider::class,
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
 
     ],
@@ -197,6 +198,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
 
+        'Agent'     => Jenssegers\Agent\Facades\Agent::class,
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
 
