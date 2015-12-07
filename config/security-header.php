@@ -13,7 +13,7 @@ return [
      *
      * Reference: https://developer.mozilla.org/en-US/docs/Web/Security/CSP
      */
-    'csp' => "default-src 'self'; script-src 'self' https://ajax.googleapis.com https://cdnjs.cloudflare.com; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' https:; font-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://fonts.gstatic.com",
+    'csp' => "default-src 'self'; script-src 'self' https://ajax.googleapis.com https://cdnjs.cloudflare.com; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://fonts.gstatic.com",
 
     /*
      * Make sure you enable https first.
