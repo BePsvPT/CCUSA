@@ -48,8 +48,6 @@ class BreadcrumbMiddleware
                 break;
         }
 
-        $breadcrumbs[] = ['link' => route('home'), 'text' => '學生會'];
-
         $this->view->share('breadcrumbs', array_reverse($breadcrumbs));
 
         return $next($request);

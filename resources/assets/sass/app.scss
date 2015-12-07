@@ -17,16 +17,46 @@ main {
   margin-top: 35px !important
 }
 
-nav {
-  height: auto;
-}
-
 .breadcrumb {
-  &:first-child {
-    margin-left: 16px;
+  height: auto;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border-bottom: 4px #fff59d solid;
+
+  img {
+    display: block;
+    margin: 0 auto;
+    vertical-align: bottom;
   }
 
-  display: inline-block;
+  a {
+    display: inline-block;
+    font-size: 2em;
+    color: #ff9800 !important;
+    border: none;
+
+    @media only screen and (max-width: 600px) {
+      font-size: 1.55em;
+    }
+
+    &:first-child {
+      vertical-align: bottom;
+
+      @media only screen and (max-width: 600px) {
+        display: block;
+      }
+    }
+
+    &:before {
+      color: #f57c00;
+    }
+
+    &:nth-child(2) {
+      &:before {
+        content: "";
+      }
+    }
+  }
 }
 
 .fixed-action-btn {
