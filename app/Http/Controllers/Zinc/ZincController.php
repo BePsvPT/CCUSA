@@ -42,8 +42,6 @@ class ZincController extends Controller
             throw new NotFoundHttpException;
         }
 
-        $zinc->getRelation('media')->shift();
-
         return view('zinc.show', compact('zinc'));
     }
 }
