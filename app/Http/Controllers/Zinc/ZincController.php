@@ -17,7 +17,11 @@ class ZincController extends Controller
      */
     public function index()
     {
-        $zincs = Zinc::with(['media'])->orderBy('year', 'desc')->orderBy('month', 'desc')->get();
+        $zincs = Zinc::with(['media'])
+            ->where('published', '=', true)
+            ->orderBy('year', 'desc')
+            ->orderBy('month', 'desc')
+            ->get();
 
         return view('zinc.index', compact('zincs'));
     }

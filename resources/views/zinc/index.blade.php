@@ -3,7 +3,10 @@
 @section('main')
     @foreach ($zincs->chunk(3) as $chunk)
         <div class="row">
-            <div class="hide-on-med-and-down col l{{ 6 - $chunk->count() * 2 }}"><span>　</span></div>
+            @if ($chunk->count() < 3)
+                <div class="hide-on-med-and-down col l{{ 6 - $chunk->count() * 2 }}"><span>　</span></div>
+            @endif
+
             @foreach ($chunk as $zinc)
                 <div class="col s12 l4">
                     <div class="card hoverable">
