@@ -14,7 +14,7 @@ return [
      * Reference: https://developer.mozilla.org/en-US/docs/Web/Security/CSP
      */
     'csp' => [
-        'rule' => "default-src 'self'; script-src 'self' https://ajax.googleapis.com https://cdnjs.cloudflare.com; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://fonts.gstatic.com",
+        'rule' => "default-src 'self'; script-src 'self' https://ajax.googleapis.com https://www.google-analytics.com https://cdnjs.cloudflare.com; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://fonts.gstatic.com",
         /*
          * The URIs that should be excluded to add CSP header.
          */

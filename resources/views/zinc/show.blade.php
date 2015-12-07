@@ -9,7 +9,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jssor-slider/19.0.1/jssor.slider.mini.js"></script>
         <style>#warning-message{text-align:center;display:none}@media only screen and (orientation:portrait){#warning-message{display:block}}</style>
     </head>
-    <body>
+    <body style="background-color: #eeeeee;">
         @if (Agent::isMobile())
             <div id="warning-message">
                 <span>您目前正在使用行動裝置瀏覽</span><br>
