@@ -39,7 +39,7 @@
                 </li>
                 <li>
                     <a class="grey-text text-lighten-3" href="{{ route('sign-in') }}">
-                        <span><i class="fa fa-user fa-fw fa-lg"></i> 網站登入</span>
+                        <span><i class="fa fa-user fa-fw fa-lg"></i> 管理員登入</span>
                     </a>
                 </li>
             </ul>
