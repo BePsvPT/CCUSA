@@ -26,7 +26,7 @@
         <footer class="orange lighten-2 page-footer">
             <div class="footer-copyright">
                 <div class="container center-align">
-                    <span>國立中正大學學生會 © 2015</span>
+                    <span>國 立 中 正 大 學 學 生 會 © 2015</span>
 
                     <a class="grey-text text-lighten-3 tooltipped"
                        href="https://www.facebook.com/NCCUSAbest"
