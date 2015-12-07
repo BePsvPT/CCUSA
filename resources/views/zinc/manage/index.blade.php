@@ -33,7 +33,7 @@
 
     @include('layouts.simple-paginate', ['pagination' => $zincs])
 
-    <div class="fixed-action-btn" style="bottom: 110px; right: 30px;">
+    <div class="fixed-action-btn">
         <a href="{{ route('zinc.manage.create') }}" class="btn-floating btn-large waves-effect waves-light green">
             <i class="fa fa-plus"></i>
         </a>

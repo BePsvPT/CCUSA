@@ -23,8 +23,13 @@ nav {
 
 .breadcrumb {
   &:first-child {
-    margin-left: 20px;
+    margin-left: 16px;
   }
 
   display: inline-block;
+}
+
+.fixed-action-btn {
+  bottom: 110px;
+  right: 30px;
 }

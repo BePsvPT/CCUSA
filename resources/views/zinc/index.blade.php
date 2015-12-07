@@ -22,7 +22,7 @@
     @endforeach
 
     @if (Auth::check())
-        <div class="fixed-action-btn" style="bottom: 110px; right: 30px;">
+        <div class="fixed-action-btn">
             <a href="{{ route('zinc.manage.index') }}" class="btn-floating btn-large waves-effect waves-light light-green">
                 <span>管理</span>
             </a>
