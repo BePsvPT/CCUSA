@@ -6,7 +6,7 @@
         <meta property="og:title" content="{{ $zinc->getAttribute('topic') }} | 國立中正大學學生會會刊">
         <meta property="og:type" content="website">
         <meta property="og:url" content="{{ Request::url() }}">
-        <meta property="og:image" content="{{ asset($zinc->getRelation('media')->first()->getUrl()) }}">
+        <meta property="og:image" content="{{ asset($zinc->getRelation('media')->shift()->getUrl()) }}">
         <meta property="og:locale" content="zh_TW">
         <title>國立中正大學學生會會刊</title>
         <style>html{overflow:hidden;}html,body{margin:0;}#warning-message{text-align:center;display:none}@media only screen and (orientation:portrait){#warning-message{display:block}}</style>
