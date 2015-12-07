@@ -9,6 +9,9 @@
                         <img src="{{ asset('assets/media/images/general/guide/zinc.png') }}">
                     </a>
                 </div>
+                <div class="card-content">
+                    <p class="grey-text  text-darken-1">待新增</p>
+                </div>
                 <div class="card-action">
                     <a href="{{ route('zinc.index') }}" class="flow-text">
                         <span>會刊 <i class="fa fa-external-link-square"></i></span>
@@ -23,6 +26,9 @@
                     <a href="{{ route('document') }}">
                         <img src="{{ asset('assets/media/images/general/guide/document.png') }}">
                     </a>
+                </div>
+                <div class="card-content">
+                    <p class="grey-text  text-darken-1">待新增</p>
                 </div>
                 <div class="card-action">
                     <a href="{{ route('document') }}" class="flow-text">
