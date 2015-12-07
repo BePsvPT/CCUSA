@@ -17,7 +17,7 @@ main {
   margin-top: 35px !important
 }
 
-.breadcrumb {
+.breadcrumb-nav {
   height: auto;
   background-color: transparent !important;
   box-shadow: none !important;
@@ -26,14 +26,12 @@ main {
   img {
     display: block;
     margin: 0 auto;
-    vertical-align: bottom;
   }
 
   a {
     display: inline-block;
     font-size: 2em;
     color: #ff9800 !important;
-    border: none;
 
     @media only screen and (max-width: 600px) {
       font-size: 1.55em;

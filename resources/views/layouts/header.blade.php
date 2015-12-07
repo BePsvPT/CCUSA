@@ -1,4 +1,4 @@
-<nav class="breadcrumb">
+<nav class="breadcrumb-nav">
     <div class="nav-wrapper">
         <a href="{{ route('home') }}">
             <img src="{{ asset('assets/media/images/general/logo/banner.png') }}" height="84">
