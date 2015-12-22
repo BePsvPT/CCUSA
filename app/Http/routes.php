@@ -37,6 +37,8 @@ $router->group(['middleware' => ['web']], function (Router $router) {
 
     $router->group(['prefix' => 'zinc', 'namespace' => 'Zinc'], function (Router $router) {
         $router->group(['middleware' => 'auth.basic'], function (Router $router) {
+            $router->get('manage/analytics', ['as' => 'zinc.manage.analytics', 'uses' => 'ManageController@analytics']);
+            $router->get('manage/analytics/data', ['uses' => 'ManageController@analyticsData']);
             $router->resource('manage', 'ManageController', ['except' => ['show']]);
         });
 

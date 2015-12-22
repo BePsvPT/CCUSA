@@ -1,1 +1,51 @@
-header,main{margin-top:35px!important}html{overflow-y:scroll!important}body{display:-webkit-flex;display:-ms-flexbox;display:flex;min-height:100vh;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column}main{-webkit-flex:1 0 auto;-ms-flex:1 0 auto;flex:1 0 auto}.breadcrumb-nav{height:auto;background-color:transparent!important;box-shadow:none!important;border-bottom:4px #fff59d solid}.breadcrumb-nav img{display:block;margin:0 auto}.breadcrumb-nav a{display:inline-block;font-size:2em;color:#ff9800!important}.breadcrumb-nav a:first-child{vertical-align:bottom}@media only screen and (max-width:600px){.breadcrumb-nav a{font-size:1.55em}.breadcrumb-nav a:first-child{display:block}}.breadcrumb-nav a:before{color:#f57c00}.breadcrumb-nav a:nth-child(2):before{content:""}.fixed-action-btn{bottom:55px;right:35px}
+html {
+  overflow-y: scroll !important; }
+
+body {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 100vh;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+
+header {
+  margin-top: 35px !important; }
+
+main {
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  margin-top: 35px !important; }
+
+.breadcrumb-nav {
+  height: auto;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border-bottom: 4px #fff59d solid; }
+  .breadcrumb-nav img {
+    display: block;
+    margin: 0 auto; }
+  .breadcrumb-nav a {
+    display: inline-block;
+    font-size: 2em;
+    color: #ff9800 !important; }
+    @media only screen and (max-width: 600px) {
+      .breadcrumb-nav a {
+        font-size: 1.55em; } }
+    .breadcrumb-nav a:first-child {
+      vertical-align: bottom; }
+      @media only screen and (max-width: 600px) {
+        .breadcrumb-nav a:first-child {
+          display: block; } }
+    .breadcrumb-nav a:before {
+      color: #f57c00; }
+    .breadcrumb-nav a:nth-child(2):before {
+      content: ""; }
+
+.fixed-action-btn {
+  bottom: 55px;
+  right: 35px; }
+
+/*# sourceMappingURL=app.css.map */

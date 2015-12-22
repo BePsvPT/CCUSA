@@ -160,6 +160,7 @@ return [
         Bepsvpt\LaravelSecurityHeader\SecurityHeaderServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
+        Spatie\LaravelAnalytics\LaravelAnalyticsServiceProvider::class,
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
 
     ],
@@ -213,6 +214,7 @@ return [
         'Agent'     => Jenssegers\Agent\Facades\Agent::class,
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
+        'Analytics' => Spatie\LaravelAnalytics\LaravelAnalyticsFacade::class,
 
     ],
 

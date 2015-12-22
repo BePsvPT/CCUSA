@@ -13,6 +13,7 @@
         "laravelcollective/html": "dev-master",
         "nesbot/carbon": "~1.21",
         "predis/predis": "~1.0",
+        "spatie/laravel-analytics": "~1.2",
         "spatie/laravel-medialibrary": "~3.11"
     },
     "require-dev": {

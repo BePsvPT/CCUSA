@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Zinc;
 
+use Analytics;
 use App\Ccusa\Zinc;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -95,5 +96,33 @@ class ManageController extends Controller
         Zinc::findOrFail($id)->delete();
 
         return $this->ok();
+    }
+
+    /**
+     * Google Analytics 頁面
+     *
+     * @return \Illuminate\View\View
+     */
+    public function analytics()
+    {
+        return view('zinc.manage.analytics');
+    }
+
+    /**
+     * Google Analytics Data
+     *
+     * @return array
+     */
+    public function analyticsData()
+    {
+        $analytics = ['date' => [], 'visitors' => [], 'pageViews' => []];
+
+        foreach (Analytics::getVisitorsAndPageViews(15) as $data) {
+            $analytics['date'][] = $data['date']->format('m-d');
+            $analytics['visitors'][] = $data['visitors'];
+            $analytics['pageViews'][] = $data['pageViews'];
+        }
+
+        return $analytics;
     }
 }

@@ -20,11 +20,13 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
     mix.sass([
         'app.scss'
-    ], 'public/assets/css');
-
-    mix.scripts([
+    ], 'public/assets/css')
+        .scripts([
         'app.js'
-    ], 'public/assets/js');
+    ], 'public/assets/js')
+        .scripts([
+        'zinc-analytics.js'
+    ], 'public/assets/js/zinc-analytics.js');
 
     if ('true' === process.env.BROWSER_SYNC) {
         mix.browserSync({
