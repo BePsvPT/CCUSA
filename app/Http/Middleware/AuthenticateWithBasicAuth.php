@@ -31,9 +31,10 @@ class AuthenticateWithBasicAuth extends \Illuminate\Auth\Middleware\Authenticate
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
+     * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $guard = null)
     {
         if ($this->hasTooManyLoginAttempts($request)) {
             Log::notice('tooManyLoginAttempts', ['ip' => $request->ip()]);
