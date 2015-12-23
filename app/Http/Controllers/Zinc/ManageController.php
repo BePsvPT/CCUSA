@@ -117,7 +117,7 @@ class ManageController extends Controller
     {
         $analytics = ['date' => [], 'visitors' => [], 'pageViews' => []];
 
-        foreach (Analytics::getVisitorsAndPageViews(15) as $data) {
+        foreach (Analytics::getVisitorsAndPageViews(30) as $data) {
             $analytics['date'][] = $data['date']->format('m-d');
             $analytics['visitors'][] = $data['visitors'];
             $analytics['pageViews'][] = $data['pageViews'];

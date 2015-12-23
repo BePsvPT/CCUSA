@@ -1,13 +1,23 @@
 @extends('layouts.master')
 
 @section('main')
+    <div class="right-align">
+        <a href="{{ route('zinc.manage.create') }}" class="btn waves-effect waves-light light-green">
+            <i class="fa fa-plus"></i>
+        </a>
+
+        <a href="{{ route('zinc.manage.analytics') }}" class="btn waves-effect waves-light light-blue">
+            <span>流量</span>
+        </a>
+    </div>
+
     <table class="bordered striped highlight centered">
         <thead>
             <tr>
                 <th>時間</th>
                 <th>主題</th>
                 <th>發布</th>
-                <th>編輯/刪除</th>
+                <th>編輯 / 刪除</th>
             </tr>
         </thead>
         <tbody>
@@ -21,10 +31,8 @@
                         <i class="fa {{ $zinc->getAttribute('published') ? 'fa-check green-text' : 'fa-times red-text' }}"></i>
                     </td>
                     <td>
-                        <a href="{{ route('zinc.manage.edit', [$zinc->getAttribute('id')]) }}" class="btn-floating waves-effect waves-light orange">
-                            <i class="fa fa-pencil"></i>
-                        </a>
-                        <a class="btn-floating waves-effect waves-light red" data-zinc-delete data-zinc-id="{{ $zinc->getAttribute('id') }}"><i class="fa fa-trash"></i></a>
+                        <a href="{{ route('zinc.manage.edit', [$zinc->getAttribute('id')]) }}" class="btn waves-effect waves-light orange"><i class="fa fa-pencil"></i></a>
+                        <a class="btn waves-effect waves-light red" data-zinc-delete data-zinc-id="{{ $zinc->getAttribute('id') }}"><i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
             @endforeach
@@ -32,10 +40,4 @@
     </table>
 
     @include('layouts.simple-paginate', ['pagination' => $zincs])
-
-    <div class="fixed-action-btn">
-        <a href="{{ route('zinc.manage.create') }}" class="btn-floating btn-large waves-effect waves-light green">
-            <i class="fa fa-plus"></i>
-        </a>
-    </div>
 @endsection
