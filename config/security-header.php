@@ -55,7 +55,6 @@ return [
         'enable' => true,
 
         'pins' => [
-            'n43RVsxGZVI69I2uYBYvqTE0TU+GQMEI2aEbQ09z2Bc=',
             'YLh1dUR9y6Kja30RrAn7JKnbQG/uEtLMkBgFF2Fuihg=',
             'EdPa1nDt22bZYh+8O/dPc4NvelDJV1dIX1sSB48KLYQ=',
         ],
