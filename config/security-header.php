@@ -41,7 +41,7 @@ return [
 
         'max_age' => 15552000,
 
-        'include_sub_domains' => false,
+        'include_sub_domains' => true,
     ],
 
     /*
@@ -61,7 +61,7 @@ return [
 
         'max_age' => 300,
 
-        'include_sub_domains' => false,
+        'include_sub_domains' => true,
     ],
 
 ];
