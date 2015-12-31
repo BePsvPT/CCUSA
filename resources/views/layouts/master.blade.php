@@ -3,11 +3,13 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
-        <meta property="og:title" content="國立中正大學學生會">
         <meta property="og:type" content="website">
-        <meta property="og:url" content="{{ route('home') }}">
-        <meta property="og:image" content="{{ asset('assets/media/images/general/logo/ccusa.png') }}">
         <meta property="og:locale" content="zh_TW">
+        @section('fetch-info')
+            <meta property="og:title" content="國立中正大學學生會">
+            <meta property="og:url" content="{{ route('home') }}">
+            <meta property="og:image" content="{{ asset('assets/media/images/general/logo/ccusa.png') }}">
+        @show
         <title>國立中正大學學生會</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">

@@ -5,10 +5,6 @@
         <a href="{{ route('zinc.manage.create') }}" class="btn waves-effect waves-light light-green">
             <i class="fa fa-plus"></i>
         </a>
-
-        <a href="{{ route('zinc.manage.analytics') }}" class="btn waves-effect waves-light light-blue">
-            <span>流量</span>
-        </a>
     </div>
 
     <table class="bordered striped highlight centered">

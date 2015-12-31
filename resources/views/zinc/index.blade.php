@@ -1,6 +1,28 @@
 @extends('layouts.master')
 
+@section('fetch-info')
+    <meta property="og:title" content="國立中正大學學生會會刊">
+    <meta property="og:url" content="{{ route('zinc.index') }}">
+    @foreach ($zincs as $zinc)
+        <meta property="og:image" content="{{ asset($zinc->getRelation('media')->first()->getUrl()) }}">
+    @endforeach
+@endsection
+
 @section('main')
+    @if (Auth::check())
+        <div class="right-align">
+            <a href="{{ route('zinc.manage.index') }}" class="btn waves-effect waves-light amber">
+                <span>管理</span>
+            </a>
+
+            <a href="{{ route('zinc.manage.analytics') }}" class="btn waves-effect waves-light light-blue">
+                <span>流量</span>
+            </a>
+        </div>
+
+        <br>
+    @endif
+
     @foreach ($zincs->chunk(3) as $chunk)
         <div class="row">
             @if ($chunk->count() < 3)
@@ -23,12 +45,4 @@
             @endforeach
         </div>
     @endforeach
-
-    @if (Auth::check())
-        <div class="fixed-action-btn">
-            <a href="{{ route('zinc.manage.index') }}" class="btn-floating btn-large waves-effect waves-light light-green">
-                <span>管理</span>
-            </a>
-        </div>
-    @endif
 @endsection

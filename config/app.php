@@ -126,7 +126,6 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
-
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
@@ -157,6 +156,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Package Service Providers...
+         */
         Bepsvpt\LaravelSecurityHeader\SecurityHeaderServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
@@ -182,7 +184,6 @@ return [
         'Artisan'   => Illuminate\Support\Facades\Artisan::class,
         'Auth'      => Illuminate\Support\Facades\Auth::class,
         'Blade'     => Illuminate\Support\Facades\Blade::class,
-        'Bus'       => Illuminate\Support\Facades\Bus::class,
         'Cache'     => Illuminate\Support\Facades\Cache::class,
         'Config'    => Illuminate\Support\Facades\Config::class,
         'Cookie'    => Illuminate\Support\Facades\Cookie::class,
@@ -193,7 +194,6 @@ return [
         'File'      => Illuminate\Support\Facades\File::class,
         'Gate'      => Illuminate\Support\Facades\Gate::class,
         'Hash'      => Illuminate\Support\Facades\Hash::class,
-        'Input'     => Illuminate\Support\Facades\Input::class,
         'Lang'      => Illuminate\Support\Facades\Lang::class,
         'Log'       => Illuminate\Support\Facades\Log::class,
         'Mail'      => Illuminate\Support\Facades\Mail::class,

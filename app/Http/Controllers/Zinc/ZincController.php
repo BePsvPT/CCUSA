@@ -18,7 +18,7 @@ class ZincController extends Controller
     public function index()
     {
         $zincs = Zinc::with(['media'])
-            ->where('published', '=', true)
+            ->where('published', true)
             ->orderBy('year', 'desc')
             ->orderBy('month', 'desc')
             ->get();
@@ -36,7 +36,10 @@ class ZincController extends Controller
      */
     public function show($year, $month)
     {
-        $zinc = Zinc::with(['media'])->where('year', '=', $year)->where('month', '=', $month)->firstOrFail();
+        $zinc = Zinc::with(['media'])
+            ->where('year', $year)
+            ->where('month', $month)
+            ->firstOrFail();
 
         if (! $zinc->getAttribute('published') && Auth::guest()) {
             throw new NotFoundHttpException;

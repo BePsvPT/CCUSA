@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Zinc;
 
 use Analytics;
 use App\Ccusa\Zinc;
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ZincRequest;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class ManageController extends Controller
 {
@@ -17,7 +18,9 @@ class ManageController extends Controller
      */
     public function index()
     {
-        $zincs = Zinc::orderBy('year', 'desc')->orderBy('month', 'desc')->simplePaginate(10);
+        $zincs = Zinc::orderBy('year', 'desc')
+            ->orderBy('month', 'desc')
+            ->simplePaginate();
 
         return view('zinc.manage.index', compact('zincs'));
     }
@@ -35,17 +38,18 @@ class ManageController extends Controller
     /**
      * 創見會刊
      *
-     * @param Requests\ZincRequest $request
+     * @param ZincRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Requests\ZincRequest $request)
+    public function store(ZincRequest $request)
     {
-        $zinc = Zinc::create(array_merge($request->only(['year', 'month', 'topic']), [
-            'published' => $published = $request->input('published', false),
-            'published_at' => $published ? Carbon::now() : null,
-        ]));
+        $zinc = Zinc::create(
+            array_merge($request->only(['year', 'month', 'topic']), $this->getPublished($request))
+        );
 
         foreach ($request->file('image', []) as $file) {
+            /** @var \Symfony\Component\HttpFoundation\File\UploadedFile $file */
+
             $zinc->addMedia($file)
                 ->setFileName(str_random(8) . '.' . $file->guessExtension())
                 ->toCollection('images-zinc', 'media.zinc');
@@ -70,18 +74,33 @@ class ManageController extends Controller
     /**
      * 更新會刊
      *
-     * @param Requests\ZincRequest $request
+     * @param ZincRequest $request
      * @param int $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Requests\ZincRequest $request, $id)
+    public function update(ZincRequest $request, $id)
     {
-        Zinc::findOrFail($id)->update(array_merge($request->only(['year', 'month', 'topic']), [
-            'published' => $published = $request->input('published', false),
-            'published_at' => $published ? Carbon::now() : null,
-        ]));
+        Zinc::findOrFail($id)->update(
+            array_merge($request->only(['year', 'month', 'topic']), $this->getPublished($request))
+        );
 
         return redirect()->route('zinc.manage.index');
+    }
+
+    /**
+     * Get published data.
+     *
+     * @param Request $request
+     * @return array
+     */
+    protected function getPublished(Request $request)
+    {
+        $published = boolval($request->input('published'));
+
+        return [
+            'published' => $published,
+            'published_at' => $published ? Carbon::now() : null,
+        ];
     }
 
     /**

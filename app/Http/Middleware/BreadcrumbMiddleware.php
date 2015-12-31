@@ -38,15 +38,15 @@ class BreadcrumbMiddleware
         if ($request->is('zinc*')) {
             $breadcrumbs[] = ['link' => route('zinc.index'), 'text' => '會刊'];
 
-            if ($request->is('zinc/manage*')) {
+            if ($request->is('zinc/manage/analytics')) {
+                $breadcrumbs[] = ['link' => '#!', 'text' => '流量分析'];
+            } else if ($request->is('zinc/manage*')) {
                 $breadcrumbs[] = ['link' => route('zinc.manage.index'), 'text' => '管理'];
 
                 if ($request->is('zinc/manage/create')) {
                     $breadcrumbs[] = ['link' => '#!', 'text' => '新增'];
                 } else if ($request->is('zinc/manage/*/edit')) {
                     $breadcrumbs[] = ['link' => '#!', 'text' => '編輯'];
-                } else if ($request->is('zinc/manage/analytics')) {
-                    $breadcrumbs[] = ['link' => '#!', 'text' => '流量分析'];
                 }
             }
         } else if ($request->is('document')) {

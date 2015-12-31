@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
-    "description": "Laravel Project Initialization.",
-    "keywords": ["framework", "laravel"],
+    "name": "bepsvpt/ccusa",
+    "description": "National Chung Cheng University Student Association",
+    "keywords": ["CCU", "CCUSA"],
     "license": "MIT",
     "type": "project",
     "require": {
