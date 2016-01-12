@@ -7,10 +7,6 @@
 
         <hr>
 
-        <canvas id="ga"></canvas>
+        <canvas id="zinc-analytics"></canvas>
     </div>
-@endsection
-
-@section('scripts')
-    <script src="{{ asset('assets/js/zinc-analytics.js') }}" defer></script>
 @endsection

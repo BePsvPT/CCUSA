@@ -55,9 +55,16 @@ class Zinc extends Entity implements HasMedia
      */
     public static function year()
     {
-        $year = Carbon::now()->year;
+        $year = 2015;
+        $years = [];
 
-        return [$year => $year, $year + 1 => $year + 1];
+        while ($year <= 2020) {
+            $years[$year] = $year;
+
+            $year++;
+        }
+
+        return $years;
     }
 
     /**

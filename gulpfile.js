@@ -6,27 +6,11 @@ if ('true' === process.env.DISABLE_GULP_NOTIFY) {
 
 var elixir = require('laravel-elixir');
 
-/*
- |--------------------------------------------------------------------------
- | Elixir Asset Management
- |--------------------------------------------------------------------------
- |
- | Elixir provides a clean, fluent API for defining some basic Gulp tasks
- | for your Laravel application. By default, we are compiling the Sass
- | file for our application, as well as publishing vendor resources.
- |
- */
+elixir.config.publicPath = 'public/assets';
 
 elixir(function(mix) {
-    mix.sass([
-        'app.scss'
-    ], 'public/assets/css')
-        .scripts([
-        'app.js'
-    ], 'public/assets/js')
-        .scripts([
-        'zinc-analytics.js'
-    ], 'public/assets/js/zinc-analytics.js');
+    mix.sass(['app.scss'])
+       .scripts(['app.js', 'zinc-analytics.js']);
 
     if ('true' === process.env.BROWSER_SYNC) {
         mix.browserSync({

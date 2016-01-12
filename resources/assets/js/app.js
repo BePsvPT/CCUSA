@@ -8,7 +8,11 @@
         // form - select tag
         $('select').material_select();
 
-        $.ajaxSetup({headers: {'X-XSRF-TOKEN': Cookies.get('XSRF-TOKEN')}});
+        $.ajaxSetup({
+            headers: {
+                'X-XSRF-TOKEN': decodeURIComponent(('; ' + document.cookie).split('; XSRF-TOKEN=').pop().split(';').shift())
+            }
+        });
 
         $(document).on('click', 'a[data-zinc-delete]', function () {
             if (confirm('確定要刪除？')) {
