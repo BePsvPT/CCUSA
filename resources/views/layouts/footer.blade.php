@@ -37,13 +37,11 @@
                         <span><i class="fa fa-github-square fa-fw fa-lg"></i> 原始碼</span>
                     </a>
                 </li>
-                @if (Auth::guest())
-                    <li>
-                        <a class="grey-text text-lighten-3" href="{{ route('sign-in') }}">
-                            <span><i class="fa fa-user fa-fw fa-lg"></i> 管理員登入</span>
-                        </a>
-                    </li>
-                @endif
+                <li>
+                    <a class="grey-text text-lighten-3" href="{{ route(Auth::guest() ? 'auth.sign-in' : 'auth.sign-out') }}">
+                        <span><i class="fa fa-user fa-fw fa-lg"></i> {{ Auth::guest() ? '管理員登入' : '登出' }}</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

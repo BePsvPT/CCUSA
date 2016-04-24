@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,15 +23,5 @@ class HomeController extends Controller
     public function document()
     {
         //
-    }
-
-    /**
-     * 登入
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function signIn()
-    {
-        return redirect()->home();
     }
 }
