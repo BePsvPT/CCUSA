@@ -11,6 +11,7 @@
         <title>國立中正大學學生會會刊</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.18/css/lightgallery.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+        <style>*{font-family:"Microsoft yahei","Roboto",sans-serif}</style>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.18/js/lightgallery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.18/js/lg-thumbnail.min.js"></script>
