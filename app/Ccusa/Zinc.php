@@ -3,7 +3,6 @@
 namespace App\Ccusa;
 
 use App\Ccusa\Core\Entity;
-use Carbon\Carbon;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
