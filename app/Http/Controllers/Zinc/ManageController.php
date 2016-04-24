@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ZincRequest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ManageController extends Controller
 {
@@ -51,7 +52,7 @@ class ManageController extends Controller
             /** @var \Symfony\Component\HttpFoundation\File\UploadedFile $file */
 
             $zinc->addMedia($file)
-                ->setFileName(str_random(8) . '.' . $file->guessExtension())
+                ->setFileName(Str::quickRandom(8).'.'.$file->guessExtension())
                 ->toCollection('images-zinc', 'media.zinc');
         }
 

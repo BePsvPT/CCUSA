@@ -14,9 +14,9 @@ class MediaLibraryPathGenerator implements PathGenerator
      *
      * @return string
      */
-    public function getPath(Media $media)
+    public function getPath(Media $media) : string
     {
-        return md5($media->getAttribute('model_id') . $media->getAttribute('model_type')) . '/';
+        return $this->getPrefix($media).'/'.$media->getAttribute('id').'/';
     }
 
     /**
@@ -26,8 +26,18 @@ class MediaLibraryPathGenerator implements PathGenerator
      *
      * @return string
      */
-    public function getPathForConversions(Media $media)
+    public function getPathForConversions(Media $media) : string
     {
-        return md5($media->getAttribute('model_id') . $media->getAttribute('model_type')). '/c/';
+        return $this->getPrefix($media).'/'.$media->getAttribute('id').'/c/';
+    }
+
+    /**
+     * Get the path prefix.
+     *
+     * @param Media $media
+     */
+    protected function getPrefix(Media $media)
+    {
+        return md5($media->getAttribute('model_id').'|'.$media->getAttribute('model_type'));
     }
 }

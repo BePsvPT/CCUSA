@@ -4,9 +4,9 @@ namespace App\Ccusa;
 
 use App\Ccusa\Core\Entity;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
 
-class Zinc extends Entity implements HasMedia
+class Zinc extends Entity implements HasMediaConversions
 {
     use HasMediaTrait;
 
@@ -46,6 +46,17 @@ class Zinc extends Entity implements HasMedia
     protected $casts = [
         'published' => 'boolean'
     ];
+
+    /**
+     * Register the conversions that should be performed.
+     */
+    public function registerMediaConversions()
+    {
+        $this->addMediaConversion('thumb')
+            ->setManipulations(['w' => 300])
+            ->performOnCollections('*')
+            ->nonQueued();
+    }
 
     /**
      * 取得年份，用於新增和編輯會刊
