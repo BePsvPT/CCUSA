@@ -1,6 +1,7 @@
 <?php
 
-use App\Ccusa\User\User;
+use App\Accounts\Role;
+use App\Accounts\User;
 use Illuminate\Database\Seeder;
 
 class UserTableSeeder extends Seeder
@@ -16,7 +17,7 @@ class UserTableSeeder extends Seeder
             factory(User::class)->create([
                 'username' => 'test',
                 'password' => bcrypt('test'),
-            ]);
+            ])->roles()->saveMany(Role::all());
         }
     }
 }

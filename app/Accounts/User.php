@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Ccusa\User;
+namespace App\Accounts;
 
 use App\Ccusa\Core\Entity;
 use Illuminate\Auth\Authenticatable;
@@ -30,4 +30,39 @@ class User extends Entity implements AuthenticatableContract
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    /**
+     * 取得使用者身份.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function roles()
+    {
+        return $this->hasMany(Role::class);
+    }
+
+    /**
+     * 確認使用者是否擁有指定身份.
+     *
+     * @param array|mixed $role
+     * @return bool
+     */
+    public function hasRole($role)
+    {
+        /* @var $roles \Illuminate\Support\Collection */
+
+        static $roles = null;
+
+        if (is_null($roles)) {
+            $roles = $this->load(['roles'])->getRelation('roles')->pluck('name');
+        }
+
+        if ($roles->contains('admin')) {
+            return true;
+        }
+
+        $role = is_array($role) ? $role : func_get_args();
+
+        return $roles->diff($role)->isEmpty();
+    }
 }
