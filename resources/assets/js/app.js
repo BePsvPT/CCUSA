@@ -1,31 +1,34 @@
 "use strict";
 
 (function ($) {
-    $(function() {
-        // form - date input tag
-        $('.datepicker').pickadate({selectMonths: true, selectYears: 5});
+  $(function() {
+    // form - date input tag
+    $('.datepicker').pickadate({selectMonths: true, selectYears: 5});
 
-        // form - select tag
-        $('select').material_select();
+    // form - select tag
+    $('select').material_select();
 
-        $.ajaxSetup({
-            headers: {
-                'X-XSRF-TOKEN': decodeURIComponent(('; ' + document.cookie).split('; XSRF-TOKEN=').pop().split(';').shift())
-            }
-        });
-
-        $(document).on('click', 'a[data-zinc-delete]', function () {
-            if (confirm('確定要刪除？')) {
-                var zinc = $(this);
-
-                $.ajax('/zinc/manage/' + zinc.data('zinc-id'), {method: 'DELETE'})
-                    .done(function () {
-                        zinc.closest('tr')[0].remove();
-                        Materialize.toast('刪除成功', 4000, 'green');
-                    });
-            }
-        });
+    $.ajaxSetup({
+      headers: {
+        'X-XSRF-TOKEN': decodeURIComponent(('; ' + document.cookie).split('; XSRF-TOKEN=').pop().split(';').shift())
+      }
     });
+
+    $(document).on('click', 'a[data-delete]', function () {
+      if (confirm('確定要刪除？')) {
+        var target = $(this);
+
+        $.ajax(target.data('url'), {method: 'DELETE'})
+          .done(function () {
+            if (target.data('delete').length > 0) {
+              target.closest(target.data('delete'))[0].remove();
+            }
+
+            Materialize.toast('刪除成功', 4000, 'green');
+          });
+      }
+    });
+  });
 })(jQuery);
 
 // GA
