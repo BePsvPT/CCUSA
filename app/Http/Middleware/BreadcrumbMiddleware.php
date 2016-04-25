@@ -49,8 +49,14 @@ class BreadcrumbMiddleware
                     $breadcrumbs[] = ['link' => '#!', 'text' => '編輯'];
                 }
             }
-        } else if ($request->is('document')) {
-            $breadcrumbs[] = ['link' => route('document'), 'text' => '文件'];
+        } else if ($request->is('documents*')) {
+            $breadcrumbs[] = ['link' => route('documents.index'), 'text' => '文件'];
+
+            if ($request->is('documents/create')) {
+                $breadcrumbs[] = ['link' => '#!', 'text' => '新增'];
+            } elseif ($request->is('documents/*/edit')) {
+                $breadcrumbs[] = ['link' => '#!', 'text' => '編輯'];
+            }
         }
 
         $this->view->share('breadcrumbs', $breadcrumbs);
