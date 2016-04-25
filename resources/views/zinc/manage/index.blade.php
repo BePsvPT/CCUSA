@@ -17,7 +17,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($zincs->items() as $zinc)
+            @foreach ($zincs as $zinc)
                 <tr>
                     <td>{{ $zinc->getAttribute('year') }} 年 {{ $zinc->getAttribute('month') }} 月份</td>
                     <td>
@@ -28,7 +28,12 @@
                     </td>
                     <td>
                         <a href="{{ route('zinc.manage.edit', [$zinc->getAttribute('id')]) }}" class="btn waves-effect waves-light orange"><i class="fa fa-pencil"></i></a>
-                        <a class="btn waves-effect waves-light red" data-zinc-delete data-zinc-id="{{ $zinc->getAttribute('id') }}"><i class="fa fa-trash"></i></a>
+
+                        <a
+                            class="btn waves-effect waves-light red"
+                            data-delete="tr"
+                            data-url="{{ route('zinc.manage.destroy', ['manage' => $zinc->getAttribute('id')])  }}"
+                        ><i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
             @endforeach
