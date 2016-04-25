@@ -8,7 +8,7 @@ $router->group(['middleware' => ['web']], function (Router $router) {
     $router->get('/', ['as' => 'home', 'uses' => 'HomeController@home']);
 
     $router->group(['prefix' => 'zinc', 'namespace' => 'Zinc'], function (Router $router) {
-        $router->group(['middleware' => 'auth'], function (Router $router) {
+        $router->group(['middleware' => ['auth', 'role:zinc']], function (Router $router) {
             $router->get('manage/analytics', ['as' => 'zinc.manage.analytics', 'uses' => 'ManageController@analytics']);
             $router->get('manage/analytics/data', ['uses' => 'ManageController@analyticsData']);
             $router->resource('manage', 'ManageController', ['except' => ['show']]);

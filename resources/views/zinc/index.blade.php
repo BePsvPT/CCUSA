@@ -9,7 +9,7 @@
 @endsection
 
 @section('main')
-    @if (Auth::check())
+    @if (Auth::check() && Auth::user()->hasRole(['zinc']))
         <div class="right-align">
             <a href="{{ route('zinc.manage.index') }}" class="btn waves-effect waves-light amber">
                 <span>管理</span>

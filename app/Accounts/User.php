@@ -38,7 +38,7 @@ class User extends Entity implements AuthenticatableContract
      */
     public function roles()
     {
-        return $this->hasMany(Role::class);
+        return $this->belongsToMany(Role::class);
     }
 
     /**
@@ -63,6 +63,6 @@ class User extends Entity implements AuthenticatableContract
 
         $role = is_array($role) ? $role : func_get_args();
 
-        return $roles->diff($role)->isEmpty();
+        return collect($role)->diff($roles)->isEmpty();
     }
 }

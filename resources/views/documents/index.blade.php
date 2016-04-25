@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('main')
-    @if (Auth::check())
+    @if (Auth::check() && Auth::user()->hasRole(['documents']))
         <div class="right-align">
             <a href="{{ route('documents.create') }}" class="btn waves-effect waves-light light-green">
                 <i class="fa fa-plus"></i>
