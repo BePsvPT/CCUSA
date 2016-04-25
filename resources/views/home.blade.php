@@ -10,7 +10,7 @@
                     </a>
                 </div>
                 <div class="card-content">
-                    <p class="grey-text  text-darken-1">點擊，翻開你的精彩生活！</p>
+                    <p class="grey-text  text-darken-1">點擊，翻開你的精彩生活</p>
                 </div>
                 <div class="card-action">
                     <a href="{{ route('zinc.index') }}" class="flow-text">
@@ -23,15 +23,15 @@
         <div class="col s12 m6 l5">
             <div class="card hoverable">
                 <div class="card-image">
-                    <a href="#!">
+                    <a href="{{ route('documents.index') }}">
                         <img src="{{ asset('assets/media/images/general/guide/document.png') }}">
                     </a>
                 </div>
                 <div class="card-content">
-                    <p class="grey-text  text-darken-1">即將推出</p>
+                    <p class="grey-text  text-darken-1">了解，使人進步</p>
                 </div>
                 <div class="card-action">
-                    <a href="#!" class="flow-text">
+                    <a href="{{ route('documents.index') }}" class="flow-text">
                         <span>文件下載 <i class="fa fa-external-link-square"></i></span>
                     </a>
                 </div>
