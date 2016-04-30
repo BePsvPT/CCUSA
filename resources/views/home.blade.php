@@ -14,7 +14,7 @@
                 </div>
                 <div class="card-action">
                     <a href="{{ route('zinc.index') }}" class="flow-text">
-                        <span>會刊 <i class="fa fa-external-link-square"></i></span>
+                        <span>Zinc 會刊 <i class="fa fa-external-link-square"></i></span>
                     </a>
                 </div>
             </div>
@@ -28,11 +28,11 @@
                     </a>
                 </div>
                 <div class="card-content">
-                    <p class="grey-text  text-darken-1">了解，使人進步</p>
+                    <p class="grey-text  text-darken-1">了解，看到更多學生會</p>
                 </div>
                 <div class="card-action">
                     <a href="{{ route('documents.index') }}" class="flow-text">
-                        <span>文件下載 <i class="fa fa-external-link-square"></i></span>
+                        <span>學生會二三事 <i class="fa fa-external-link-square"></i></span>
                     </a>
                 </div>
             </div>
