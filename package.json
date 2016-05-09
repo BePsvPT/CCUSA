@@ -1,10 +1,9 @@
 {
-    "private": true,
-    "devDependencies": {
-        "gulp": "^3.9.0"
-    },
-    "dependencies": {
-        "laravel-elixir": "^3.4.2",
-        "dotenv": "~1.2.0"
-    }
+  "private": true,
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  },
+  "dependencies": {
+    "laravel-elixir": "^6.0.0-1"
+  }
 }
