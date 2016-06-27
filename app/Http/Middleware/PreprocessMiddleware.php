@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Closure;
 use Illuminate\Contracts\View\Factory as ViewFactory;
 use ParagonIE\CSPBuilder\CSPBuilder;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class PreprocessMiddleware
 {
@@ -65,6 +66,10 @@ class PreprocessMiddleware
      */
     protected function buildCsp()
     {
+        if ($this->response instanceof BinaryFileResponse) {
+            return;
+        }
+
         $csp = CSPBuilder::fromFile(config_path('csp.json'));
 
         $csp->addDirective('upgrade-insecure-requests', $this->request->secure());
