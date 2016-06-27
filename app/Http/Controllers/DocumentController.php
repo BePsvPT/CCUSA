@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use App\Attachments\Attachment;
 use App\Documents\Document;
 use App\Http\Requests\DocumentRequest;
-use Auth;
+use Hashids\Hashids;
 use Illuminate\Support\Str;
 use Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class DocumentController extends Controller
 {
@@ -16,31 +17,27 @@ class DocumentController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index', 'show']]);
-
         $this->middleware('role:documents', ['except' => ['index', 'show']]);
     }
 
     /**
-     * Get documents list.
+     * Get the documents list page.
      *
      * @return \Illuminate\View\View
      */
     public function index()
     {
-        $documents = Document::with(['attachments']);
-
-        if (Auth::guest()) {
-            $documents = $documents->where('published', true);
-        }
-
-        $documents = $documents->latest()->get()->groupBy('group');
+        $documents = Document::with(['attachments'])
+            ->guest()
+            ->latest()
+            ->get(['id', 'group', 'published'])
+            ->groupBy('group');
 
         return view('documents.index', compact('documents'));
     }
 
     /**
-     * Show the creating form.
+     * Get the document upload page.
      *
      * @return \Illuminate\View\View
      */
@@ -55,12 +52,12 @@ class DocumentController extends Controller
      * Create a document.
      *
      * @param DocumentRequest $request
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(DocumentRequest $request)
     {
-        $document = (new Document($request->only(['group'])))
-            ->setAttribute('published', $request->input('published', 0));
+        $document = (new Document($request->only(['group', 'published'])));
 
         $document->save();
 
@@ -80,20 +77,21 @@ class DocumentController extends Controller
     }
 
     /**
-     * Download the attachment.
+     * Download the document.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param string $hashid
+     *
+     * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
      */
-    public function show($id)
+    public function show($hashid)
     {
-        $documents = Document::with(['attachments']);
+        $attachment = Document::with(['attachments'])
+            ->guest()
+            ->findOrFail($this->transformHashid($hashid))
+            ->getRelation('attachments')
+            ->first();
 
-        if (Auth::guest()) {
-            $documents = $documents->where('published', true);
-        }
-
-        $attachment = $documents->findOrFail($id)->getRelation('attachments')->first();
+        $attachment->increment('downloads');
 
         return Response::download($attachment->getPath(), $attachment->getAttribute('name'), [
             'content-type' => $attachment->getAttribute('mime_type'),
@@ -103,12 +101,13 @@ class DocumentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param string $hashid
+     *
+     * @return \Illuminate\View\View
      */
-    public function edit($id)
+    public function edit($hashid)
     {
-        $document = Document::with(['attachments'])->findOrFail($id);
+        $document = Document::with(['attachments'])->findOrFail($this->transformHashid($hashid));
 
         $groups = Document::groupBy(['group'])->get(['group'])->pluck('group', 'group');
 
@@ -119,15 +118,15 @@ class DocumentController extends Controller
      * Update a specific document.
      *
      * @param DocumentRequest $request
-     * @param int $id
+     * @param string $hashid
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(DocumentRequest $request, $id)
+    public function update(DocumentRequest $request, $hashid)
     {
-        $document = Document::with(['attachments'])->findOrFail($id);
+        $document = Document::with(['attachments'])->findOrFail($this->transformHashid($hashid));
 
-        $document->fill($request->only(['group']))
-            ->setAttribute('published', $request->input('published', 0));;
+        $document->fill($request->only(['group', 'published']));
 
         $document->getRelation('attachments')->first()->fill($request->only(['name']));
 
@@ -138,15 +137,34 @@ class DocumentController extends Controller
 
 
     /**
-     * Delete a specific document.
+     * Delete the specific document.
      *
-     * @param int $id
-     * @return \Illuminate\Http\RedirectResponse
+     * @param string $hashid
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function destroy($id)
+    public function destroy($hashid)
     {
-        Document::destroy($id);
+        Document::destroy($this->transformHashid($hashid));
 
         return $this->ok();
+    }
+
+    /**
+     * Transform the hashid to original number.
+     *
+     * @param string $hashid
+     *
+     * @return int
+     */
+    protected function transformHashid($hashid)
+    {
+        $ids = app(Hashids::class)->decode($hashid);
+
+        if (empty($ids)) {
+            throw new NotFoundHttpException;
+        }
+
+        return $ids[0];
     }
 }

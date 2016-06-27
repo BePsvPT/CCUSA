@@ -154,12 +154,12 @@ return [
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
+        App\Providers\HashidsServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
         /*
          * Package Service Providers...
          */
-        Bepsvpt\LaravelSecurityHeader\SecurityHeaderServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
         Spatie\LaravelAnalytics\LaravelAnalyticsServiceProvider::class,

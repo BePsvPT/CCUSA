@@ -6,9 +6,10 @@ if (! function_exists('human_filesize')) {
      *
      * @param int $size
      * @param int $precision
+     *
      * @return string
      */
-    function human_filesize($size, $precision = 2)
+    function human_filesize ($size, $precision = 2)
     {
         $units = ['B','KB','MB','GB','TB','PB','EB','ZB','YB'];
 
@@ -23,5 +24,17 @@ if (! function_exists('human_filesize')) {
         }
 
         return round($size, $precision).' '.$units[$i];
+    }
+}
+
+if (! function_exists('file_build_path')) {
+    /**
+     * Generate path according to the os directory separator.
+     *
+     * @return string
+     */
+    function file_build_path ()
+    {
+        return implode(DIRECTORY_SEPARATOR, func_get_args());
     }
 }

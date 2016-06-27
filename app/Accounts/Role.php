@@ -2,7 +2,7 @@
 
 namespace App\Accounts;
 
-use App\Ccusa\Core\Entity;
+use App\Core\Entity;
 
 class Role extends Entity
 {

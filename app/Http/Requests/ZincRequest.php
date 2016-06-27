@@ -2,8 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Ccusa\Zinc;
-use App\Http\Requests\Request;
+use App\Zinc\Zinc;
 
 class ZincRequest extends Request
 {
@@ -15,8 +14,8 @@ class ZincRequest extends Request
     public function rules()
     {
         $rules = [
-            'year' => 'required|in:' . implode(',', Zinc::year()),
-            'month' => 'required|in:' . implode(',', Zinc::month()) . '|unique:zinc,month,NULL,id,year,' . $this->input('year'),
+            'year' => 'required|in:'.implode(',', Zinc::year()),
+            'month' => 'required|in:'.implode(',', Zinc::month()).'|unique:zinc,month,NULL,id,year,'.$this->input('year'),
             'topic' => 'required|string|max:255',
             'published' => 'boolean',
             'image' => 'sometimes|required|array',

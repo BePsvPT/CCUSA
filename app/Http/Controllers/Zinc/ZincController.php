@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Zinc;
 
-use App\Ccusa\Zinc;
+use App\Zinc\Zinc;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Auth;
@@ -11,7 +11,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class ZincController extends Controller
 {
     /**
-     * 會刊首頁
+     * Get the zinc list.
      *
      * @return \Illuminate\View\View
      */
@@ -27,11 +27,13 @@ class ZincController extends Controller
     }
 
     /**
-     * 會刊內容頁面
+     * Get the zinc content.
      *
      * @param int $year
      * @param int $month
+     *
      * @return \Illuminate\View\View
+     *
      * @throws NotFoundHttpException
      */
     public function show($year, $month)

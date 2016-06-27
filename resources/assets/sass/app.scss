@@ -56,3 +56,21 @@ main {
     }
   }
 }
+
+.document-item .secondary-content {
+  span {
+    vertical-align: super;
+  }
+
+  a {
+    height: 27px;
+    line-height: 27px;
+    padding: 0 1.5rem;
+    margin-left: 10px;
+    vertical-align: baseline;
+
+    i {
+      font-size: 1rem;
+    }
+  }
+}

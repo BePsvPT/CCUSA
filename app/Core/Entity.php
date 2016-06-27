@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Ccusa\Core;
+namespace App\Core;
 
 use Eloquent;
+use Hashids\Hashids;
 
 class Entity extends Eloquent
 {
@@ -21,5 +22,15 @@ class Entity extends Eloquent
     public static function getTableName()
     {
         return (new static)->getTable();
+    }
+
+    /**
+     * Get the hashid of the attachment.
+     *
+     * @return string mixed
+     */
+    public function getHashId()
+    {
+        return app(Hashids::class)->encode($this->getKey());
     }
 }

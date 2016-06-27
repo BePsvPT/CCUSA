@@ -2,7 +2,7 @@
 
 namespace App\Attachments;
 
-use App\Ccusa\Core\Entity;
+use App\Core\Entity;
 use File;
 
 class Attachment extends Entity
@@ -23,7 +23,7 @@ class Attachment extends Entity
     {
         parent::boot();
 
-        static::deleting(function (Attachment $attachment) {
+        static::deleting(function (self $attachment) {
             File::delete($attachment->getPath());
         });
     }
@@ -35,7 +35,7 @@ class Attachment extends Entity
      */
     public function getPath()
     {
-        return $this->getDirectory().'/'.$this->getAttribute('file_name');
+        return file_build_path($this->getDirectory(), $this->getAttribute('file_name'));
     }
 
     /**
@@ -45,8 +45,8 @@ class Attachment extends Entity
      */
     public function getDirectory()
     {
-        $prefixDir = intval(floor($this->getKey() / 1000));
+        $prefixDir = intval(floor($this->getKey()/1000));
 
-        return storage_path('app/attachments/'.$prefixDir);
+        return storage_path(file_build_path('app', 'attachments', $prefixDir));
     }
 }

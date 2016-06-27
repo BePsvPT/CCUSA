@@ -1,6 +1,6 @@
 process.env.DISABLE_NOTIFIER = true;
 
-var elixir = require('laravel-elixir');
+const elixir = require('laravel-elixir');
 
 elixir.config.publicPath = 'public/assets';
 
@@ -9,6 +9,7 @@ elixir(function(mix) {
     .scripts(['app.js', 'zinc-analytics.js']);
 
   mix.browserSync({
-    proxy: 'ccusa.dev'
+    browser: ['google chrome'],
+    proxy: 'https://ccusa.dev'
   });
 });

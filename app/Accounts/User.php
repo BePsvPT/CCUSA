@@ -2,7 +2,7 @@
 
 namespace App\Accounts;
 
-use App\Ccusa\Core\Entity;
+use App\Core\Entity;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 
@@ -42,15 +42,14 @@ class User extends Entity implements AuthenticatableContract
     }
 
     /**
-     * 確認使用者是否擁有指定身份.
+     * Check the user has the specific roles.
      *
      * @param array|mixed $role
+     *
      * @return bool
      */
     public function hasRole($role)
     {
-        /* @var $roles \Illuminate\Support\Collection */
-
         static $roles = null;
 
         if (is_null($roles)) {

@@ -3,7 +3,8 @@
 namespace App\Documents;
 
 use App\Attachments\Attachment;
-use App\Ccusa\Core\Entity;
+use App\Core\Entity;
+use Auth;
 
 class Document extends Entity
 {
@@ -24,13 +25,45 @@ class Document extends Entity
     ];
 
     /**
-     * 取得所有附件.
+     * Get the attachments of the document.
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
      */
     public function attachments()
     {
         return $this->morphMany(Attachment::class, 'attachmentable');
+    }
+
+    /**
+     * Scope a query to only include published documents.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeGuest($query)
+    {
+        $user = Auth::user();
+
+        if (is_null($user) || ! $user->hasRole('documents')) {
+            return $query->where('published', true);
+        }
+
+        return $query;
+    }
+
+    /**
+     * Transform published value to bool.
+     *
+     * @param mixed $value
+     *
+     * @return $this
+     */
+    public function setPublishedAttribute($value)
+    {
+        $this->attributes['published'] = boolval($value);
+        
+        return $this;
     }
 
     /**
@@ -42,12 +75,12 @@ class Document extends Entity
     {
         parent::boot();
 
-        static::deleting(function (Document $document) {
-            $document->load(['attachments']);
-
-            $document->getRelation('attachments')->each(function (Attachment $attachment) {
-                $attachment->delete();
-            });
+        static::deleting(function (self $document) {
+            $document->load(['attachments'])
+                ->getRelation('attachments')
+                ->each(function (Attachment $attachment) {
+                    $attachment->delete();
+                });
         });
     }
 }

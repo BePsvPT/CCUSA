@@ -15,6 +15,7 @@ class Controller extends BaseController
      * return 200 http response
      *
      * @param array $headers
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function ok(array $headers = [])

@@ -7,7 +7,7 @@ use App\Http\Requests;
 class HomeController extends Controller
 {
     /**
-     * 網站首頁
+     * Get the application home page.
      *
      * @return \Illuminate\View\View
      */

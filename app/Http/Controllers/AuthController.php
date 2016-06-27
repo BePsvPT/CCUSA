@@ -8,20 +8,21 @@ use Illuminate\Http\Request;
 class AuthController extends Controller
 {
     /**
-     * Sign in page.
+     * Get the sign in page.
      *
-     * @return mixed
+     * @return \Illuminate\View\View
      */
     public function signIn()
     {
         return view('auth.sign-in');
     }
-    
+
     /**
-     * Auth the sign in request.
+     * Sign in to the application.
      *
      * @param Request $request
-     * @return mixed
+     *
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function auth(Request $request)
     {
@@ -31,11 +32,11 @@ class AuthController extends Controller
 
         return redirect()->intended(route('home'));
     }
-    
+
     /**
      * Sign out the application.
      *
-     * @return mixed
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function signOut()
     {

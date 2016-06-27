@@ -1,0 +1,56 @@
+{
+  "report-only": false,
+  "base-uri": [],
+  "default-src": [],
+  "child-src": [],
+  "connect-src": {
+    "allow": [],
+    "self": true
+  },
+  "font-src": {
+    "allow": [
+      "https://fonts.googleapis.com",
+      "https://fonts.gstatic.com",
+      "https://cdnjs.cloudflare.com"
+    ],
+    "self": false
+  },
+  "form-action": {
+    "allow": [],
+    "self": true
+  },
+  "frame-ancestors": [],
+  "img-src": {
+    "allow": [],
+    "types": [
+      "https:"
+    ],
+    "self": true,
+    "data": true
+  },
+  "media-src": [],
+  "object-src": [],
+  "plugin-types": [],
+  "script-src": {
+    "allow": [
+      "https://ajax.googleapis.com",
+      "https://cdnjs.cloudflare.com",
+      "https://www.google-analytics.com"
+    ],
+    "hashes": [
+      { "sha256": "Z1eJy5jCIuvxzNwl6abHy8QfeqA3uown3Nj5vnBBGA8=" }
+    ],
+    "self": true,
+    "unsafe-inline": false,
+    "unsafe-eval": true
+  },
+  "style-src": {
+    "allow": [
+      "https://cdnjs.cloudflare.com",
+      "https://fonts.googleapis.com"
+    ],
+    "self": true,
+    "unsafe-inline": true
+  },
+  "upgrade-insecure-requests": false
+}

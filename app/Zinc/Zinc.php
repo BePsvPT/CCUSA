@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Ccusa;
+namespace App\Zinc;
 
-use App\Ccusa\Core\Entity;
+use App\Core\Entity;
+use Carbon\Carbon;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
 
@@ -59,26 +60,21 @@ class Zinc extends Entity implements HasMediaConversions
     }
 
     /**
-     * 取得年份，用於新增和編輯會刊
+     * 取得年份，用於新增和編輯會刊.
      *
      * @return array
      */
     public static function year()
     {
-        $year = 2015;
-        $years = [];
+        $now = Carbon::now()->subYear()->year;
 
-        while ($year <= 2020) {
-            $years[$year] = $year;
+        $years = range($now, $now+5);
 
-            $year++;
-        }
-
-        return $years;
+        return array_combine($years, $years);
     }
 
     /**
-     * 取得月份，用於新增和編輯會刊
+     * 取得月份，用於新增和編輯會刊.
      *
      * @return array
      */

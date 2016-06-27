@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Zinc;
 
 use Analytics;
-use App\Ccusa\Zinc;
+use App\Zinc\Zinc;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ZincRequest;
 use Carbon\Carbon;
@@ -13,7 +13,7 @@ use Illuminate\Support\Str;
 class ManageController extends Controller
 {
     /**
-     * 會刊管理頁面
+     * Get the zinc manage page.
      *
      * @return \Illuminate\View\View
      */
@@ -27,7 +27,7 @@ class ManageController extends Controller
     }
 
     /**
-     * 新增會刊
+     * Get the zinc create page.
      *
      * @return \Illuminate\View\View
      */
@@ -37,9 +37,10 @@ class ManageController extends Controller
     }
 
     /**
-     * 創見會刊
+     * Create a new zinc.
      *
      * @param ZincRequest $request
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(ZincRequest $request)
@@ -49,8 +50,6 @@ class ManageController extends Controller
         );
 
         foreach ($request->file('image', []) as $file) {
-            /** @var \Symfony\Component\HttpFoundation\File\UploadedFile $file */
-
             $zinc->addMedia($file)
                 ->setFileName(Str::quickRandom(8).'.'.$file->guessExtension())
                 ->toCollection('images-zinc', 'media.zinc');
@@ -60,10 +59,11 @@ class ManageController extends Controller
     }
 
     /**
-     * 編輯會刊
+     * Get the zinc edit page.
      *
      * @param int $id
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     *
+     * @return \Illuminate\View\View
      */
     public function edit($id)
     {
@@ -73,10 +73,11 @@ class ManageController extends Controller
     }
 
     /**
-     * 更新會刊
+     * Update the zinc.
      *
      * @param ZincRequest $request
      * @param int $id
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update(ZincRequest $request, $id)
@@ -92,6 +93,7 @@ class ManageController extends Controller
      * Get published data.
      *
      * @param Request $request
+     *
      * @return array
      */
     protected function getPublished(Request $request)
@@ -105,10 +107,12 @@ class ManageController extends Controller
     }
 
     /**
-     * 刪除會刊
+     * Delete the specific zinc.
      *
      * @param int $id
+     *
      * @return \Illuminate\Http\RedirectResponse
+     *
      * @throws \Exception
      */
     public function destroy($id)
@@ -119,7 +123,7 @@ class ManageController extends Controller
     }
 
     /**
-     * Google Analytics 頁面
+     * Get google analytics page.
      *
      * @return \Illuminate\View\View
      */
@@ -129,7 +133,7 @@ class ManageController extends Controller
     }
 
     /**
-     * Google Analytics Data
+     * Get the google analytics data.
      *
      * @return array
      */
