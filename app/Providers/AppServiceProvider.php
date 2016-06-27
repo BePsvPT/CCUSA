@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Documents\Document;
+use App\Zinc\Zinc;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
 
@@ -22,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
 
         Relation::morphMap([
             Document::class,
+            Zinc::class,
         ]);
     }
 
