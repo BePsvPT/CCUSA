@@ -16,7 +16,7 @@ class MediaLibraryPathGenerator implements PathGenerator
      */
     public function getPath(Media $media) : string
     {
-        return file_build_path($this->getPrefix($media), $media->getAttribute('id'), '');
+        return $this->getPrefix($media).'/'.$media->getAttribute('id').'/';
     }
 
     /**
@@ -28,7 +28,7 @@ class MediaLibraryPathGenerator implements PathGenerator
      */
     public function getPathForConversions(Media $media) : string
     {
-        return file_build_path($this->getPrefix($media), $media->getAttribute('id'), 'c', '');
+        return $this->getPrefix($media).'/'.$media->getAttribute('id').'/c/';
     }
 
     /**

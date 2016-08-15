@@ -3,7 +3,7 @@
 namespace App\Core;
 
 use Eloquent;
-use Hashids\Hashids;
+use Hashids;
 
 class Entity extends Eloquent
 {
@@ -31,6 +31,6 @@ class Entity extends Eloquent
      */
     public function getHashId()
     {
-        return app(Hashids::class)->encode($this->getKey());
+        return Hashids::encode($this->getKey());
     }
 }

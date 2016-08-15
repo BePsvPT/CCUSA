@@ -2,8 +2,6 @@
 
 namespace App\Providers;
 
-use App\Documents\Document;
-use App\Zinc\Zinc;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
 
@@ -21,10 +19,25 @@ class AppServiceProvider extends ServiceProvider
             $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
         }
 
+        $this->morphMap();
+    }
+
+    /**
+     * Set the morph map for polymorphic relations.
+     *
+     * @return $this
+     */
+    protected function morphMap()
+    {
         Relation::morphMap([
-            Document::class,
-            Zinc::class,
+            \App\Accounts\Role::class,
+            \App\Accounts\User::class,
+            \App\Attachments\Attachment::class,
+            \App\Documents\Document::class,
+            \App\Zinc\Zinc::class,
         ]);
+
+        return $this;
     }
 
     /**

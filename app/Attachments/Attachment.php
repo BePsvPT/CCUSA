@@ -35,7 +35,7 @@ class Attachment extends Entity
      */
     public function getPath()
     {
-        return file_build_path($this->getDirectory(), $this->getAttribute('file_name'));
+        return $this->getDirectory().'/'.$this->getAttribute('file_name');
     }
 
     /**
@@ -47,6 +47,6 @@ class Attachment extends Entity
     {
         $prefixDir = intval(floor($this->getKey()/1000));
 
-        return storage_path(file_build_path('app', 'attachments', $prefixDir));
+        return storage_path("app/attachments/{$prefixDir}");
     }
 }

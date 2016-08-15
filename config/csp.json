@@ -4,14 +4,17 @@
   "default-src": [],
   "child-src": [],
   "connect-src": {
-    "allow": [],
+    "allow": [
+      "wss://localhost:3000"
+    ],
     "self": true
   },
   "font-src": {
     "allow": [
-      "https://fonts.googleapis.com",
-      "https://fonts.gstatic.com",
-      "https://cdnjs.cloudflare.com"
+      "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/",
+      "https://cdnjs.cloudflare.com/ajax/libs/lightgallery/",
+      "https://cdnjs.cloudflare.com/ajax/libs/materialize/",
+      "https://fonts.gstatic.com/s/materialicons/"
     ],
     "self": false
   },
@@ -33,8 +36,10 @@
   "plugin-types": [],
   "script-src": {
     "allow": [
-      "https://ajax.googleapis.com",
-      "https://cdnjs.cloudflare.com",
+      "https://ajax.googleapis.com/ajax/libs/jquery/",
+      "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/",
+      "https://cdnjs.cloudflare.com/ajax/libs/lightgallery/",
+      "https://cdnjs.cloudflare.com/ajax/libs/materialize/",
       "https://www.google-analytics.com"
     ],
     "hashes": [
@@ -46,8 +51,10 @@
   },
   "style-src": {
     "allow": [
-      "https://cdnjs.cloudflare.com",
-      "https://fonts.googleapis.com"
+      "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/",
+      "https://cdnjs.cloudflare.com/ajax/libs/lightgallery/",
+      "https://cdnjs.cloudflare.com/ajax/libs/materialize/",
+      "https://fonts.googleapis.com/icon"
     ],
     "self": true,
     "unsafe-inline": true

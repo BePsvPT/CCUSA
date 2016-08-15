@@ -111,7 +111,7 @@ class ManageController extends Controller
      *
      * @param int $id
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\Response
      *
      * @throws \Exception
      */

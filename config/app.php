@@ -4,6 +4,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Application Name
+    |--------------------------------------------------------------------------
+    |
+    | This value is the name of your application. This value is used when the
+    | framework needs to place the application's name in a notification or
+    | any other location as required by the application or its packages.
+    */
+
+    'name' => 'CCUSA',
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Environment
     |--------------------------------------------------------------------------
     |
@@ -39,7 +51,7 @@ return [
     |
     */
 
-    'url' => 'https://ccusa.ccu.edu.tw',
+    'url' => env('APP_URL', 'https://ccusa.ccu.edu.tw'),
 
     /*
     |--------------------------------------------------------------------------
@@ -108,7 +120,11 @@ return [
     |
     */
 
-    'log' => 'daily',
+    'log' => env('APP_LOG', 'daily'),
+
+    'log_level' => env('APP_LOG_LEVEL', 'debug'),
+
+    'log_max_files' => 30,
 
     /*
     |--------------------------------------------------------------------------
@@ -154,16 +170,17 @@ return [
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
-        App\Providers\HashidsServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
         /*
          * Package Service Providers...
          */
         Collective\Html\HtmlServiceProvider::class,
+        DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
         Spatie\LaravelAnalytics\LaravelAnalyticsServiceProvider::class,
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
+        Vinkla\Hashids\HashidsServiceProvider::class,
 
     ],
 
@@ -211,10 +228,12 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
 
-        'Agent'     => Jenssegers\Agent\Facades\Agent::class,
-        'Form'      => Collective\Html\FormFacade::class,
-        'Html'      => Collective\Html\HtmlFacade::class,
-        'Analytics' => Spatie\LaravelAnalytics\LaravelAnalyticsFacade::class,
+        'Agent'       => Jenssegers\Agent\Facades\Agent::class,
+        'Analytics'   => Spatie\LaravelAnalytics\LaravelAnalyticsFacade::class,
+        'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
+        'Form'        => Collective\Html\FormFacade::class,
+        'Hashids'     => Vinkla\Hashids\Facades\Hashids::class,
+        'Html'        => Collective\Html\HtmlFacade::class,
 
     ],
 

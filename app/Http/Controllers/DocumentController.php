@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Attachments\Attachment;
 use App\Documents\Document;
 use App\Http\Requests\DocumentRequest;
-use Hashids\Hashids;
+use Hashids;
 use Illuminate\Support\Str;
 use Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -159,7 +159,7 @@ class DocumentController extends Controller
      */
     protected function transformHashid($hashid)
     {
-        $ids = app(Hashids::class)->decode($hashid);
+        $ids = Hashids::decode($hashid);
 
         if (empty($ids)) {
             throw new NotFoundHttpException;

@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Zinc;
 
 use App\Zinc\Zinc;
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Auth;
+use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class ZincController extends Controller
@@ -29,21 +28,20 @@ class ZincController extends Controller
     /**
      * Get the zinc content.
      *
+     * @param Request $request
      * @param int $year
      * @param int $month
      *
      * @return \Illuminate\View\View
-     *
-     * @throws NotFoundHttpException
      */
-    public function show($year, $month)
+    public function show(Request $request, $year, $month)
     {
         $zinc = Zinc::with(['media'])
             ->where('year', $year)
             ->where('month', $month)
             ->firstOrFail();
 
-        if (! $zinc->getAttribute('published') && Auth::guest()) {
+        if (! $zinc->getAttribute('published') && is_null($request->user())) {
             throw new NotFoundHttpException;
         }
 

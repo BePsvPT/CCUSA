@@ -26,15 +26,3 @@ if (! function_exists('human_filesize')) {
         return round($size, $precision).' '.$units[$i];
     }
 }
-
-if (! function_exists('file_build_path')) {
-    /**
-     * Generate path according to the os directory separator.
-     *
-     * @return string
-     */
-    function file_build_path ()
-    {
-        return implode(DIRECTORY_SEPARATOR, func_get_args());
-    }
-}

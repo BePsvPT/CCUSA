@@ -74,6 +74,6 @@ class PreprocessMiddleware
 
         $csp->addDirective('upgrade-insecure-requests', $this->request->secure());
 
-        $this->response->withHeaders($csp->getHeaderArray());
+        $this->response->withHeaders($csp->getHeaderArray(false));
     }
 }
