@@ -2,8 +2,7 @@
 
 use DaveJamesMiller\Breadcrumbs\Generator;
 
-Breadcrumbs::register('home', function(Generator $generator)
-{
+Breadcrumbs::register('home', function (Generator $generator) {
     $generator->push('Home', route('home'), [
         'img' => asset('assets/media/images/general/logo/banner.png'),
         'notitle' => true,

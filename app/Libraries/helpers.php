@@ -9,9 +9,9 @@ if (! function_exists('human_filesize')) {
      *
      * @return string
      */
-    function human_filesize ($size, $precision = 2)
+    function human_filesize($size, $precision = 2)
     {
-        $units = ['B','KB','MB','GB','TB','PB','EB','ZB','YB'];
+        $units = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
 
         $step = 1024;
 

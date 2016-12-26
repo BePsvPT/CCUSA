@@ -21,7 +21,7 @@ class Document extends Entity
      * @var array
      */
     protected $casts = [
-        'published' => 'boolean'
+        'published' => 'boolean',
     ];
 
     /**
@@ -62,7 +62,7 @@ class Document extends Entity
     public function setPublishedAttribute($value)
     {
         $this->attributes['published'] = boolval($value);
-        
+
         return $this;
     }
 

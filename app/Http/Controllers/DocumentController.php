@@ -135,7 +135,6 @@ class DocumentController extends Controller
         return Response::redirectToRoute('documents.index');
     }
 
-
     /**
      * Delete the specific document.
      *
