@@ -45,7 +45,7 @@ class Zinc extends Entity implements HasMediaConversions
      * @var array
      */
     protected $casts = [
-        'published' => 'boolean'
+        'published' => 'boolean',
     ];
 
     /**
@@ -68,7 +68,7 @@ class Zinc extends Entity implements HasMediaConversions
     {
         $now = Carbon::now()->subYear()->year;
 
-        $years = range($now, $now+5);
+        $years = range($now, $now + 5);
 
         return array_combine($years, $years);
     }

@@ -57,7 +57,7 @@ return [
             'default' => [
                 'driver' => 'local',
                 'root'   => public_path('assets/media/default'),
-            ]
+            ],
         ],
 
     ],

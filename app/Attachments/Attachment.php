@@ -45,7 +45,7 @@ class Attachment extends Entity
      */
     public function getDirectory()
     {
-        $prefixDir = intval(floor($this->getKey()/1000));
+        $prefixDir = intval(floor($this->getKey() / 1000));
 
         return storage_path("app/attachments/{$prefixDir}");
     }
