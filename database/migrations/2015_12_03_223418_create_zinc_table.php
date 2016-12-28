@@ -18,12 +18,10 @@ class CreateZincTable extends Migration
             $table->tinyInteger('month')->unsigned();
             $table->string('topic');
             $table->mediumInteger('views')->unsigned()->default(0);
-            $table->boolean('published')->default(false);
+            $table->boolean('published')->default(false)->index();
             $table->timestamp('published_at')->nullable();
 
             $table->unique(['year', 'month']);
-
-            $table->index('published');
         });
     }
 
