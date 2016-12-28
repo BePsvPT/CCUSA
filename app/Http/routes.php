@@ -1,19 +1,20 @@
 <?php
 
 /** @var Router $router */
+
 use Illuminate\Routing\Router;
 
 $router->get('/', ['as' => 'home', 'uses' => 'HomeController@home']);
 
-$router->group(['prefix' => 'zinc', 'namespace' => 'Zinc'], function (Router $router) {
+$router->group(['prefix' => 'zinc', 'namespace' => 'Zinc', 'as' => 'zinc.'], function (Router $router) {
     $router->group(['middleware' => ['role:zinc']], function (Router $router) {
-        $router->get('manage/analytics', ['as' => 'zinc.manage.analytics', 'uses' => 'ManageController@analytics']);
-        $router->get('manage/analytics/data', ['uses' => 'ManageController@analyticsData']);
+        $router->get('manage/analytics', ['as' => 'manage.analytics', 'uses' => 'ManageController@analytics']);
+        $router->get('manage/analytics/data', ['as' => 'manage.analytics.data', 'uses' => 'ManageController@analyticsData']);
         $router->resource('manage', 'ManageController', ['except' => ['show']]);
     });
 
-    $router->get('/', ['as' => 'zinc.index', 'uses' => 'ZincController@index']);
-    $router->get('{year}/{month}', ['as' => 'zinc.show', 'uses' => 'ZincController@show']);
+    $router->get('/', ['as' => 'index', 'uses' => 'ZincController@index']);
+    $router->get('{year}/{month}', ['as' => 'show', 'uses' => 'ZincController@show']);
 });
 
 $router->resource('documents', 'DocumentController', ['parameters' => ['documents' => 'hashid']]);

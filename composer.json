@@ -5,8 +5,8 @@
   "license": "MIT",
   "type": "project",
   "require": {
-    "php": ">=7.0",
-    "laravel/framework": "5.2.*",
+    "php": "^7.0",
+    "laravel/framework": "5.3.*",
     "davejamesmiller/laravel-breadcrumbs": "^3.0",
     "doctrine/dbal": "^2.5",
     "jenssegers/agent": "^2.3",
@@ -25,8 +25,8 @@
     "mockery/mockery": "~0.9",
     "phpunit/phpunit": "~4.8",
     "phpspec/phpspec": "~2.3",
-    "symfony/css-selector": "~3.0",
-    "symfony/dom-crawler": "~3.0"
+    "symfony/css-selector": "3.1.*",
+    "symfony/dom-crawler": "3.1.*"
   },
   "autoload": {
     "classmap": [
@@ -43,6 +43,12 @@
     "psr-4": {
       "Tests\\": "tests/"
     }
+  },
+  "config": {
+    "preferred-install": "dist",
+    "optimize-autoloader": true,
+    "sort-packages": true,
+    "notify-on-install": false
   },
   "scripts": {
     "post-root-package-install": [
@@ -61,8 +67,5 @@
       "php artisan ide-helper:meta",
       "php artisan optimize"
     ]
-  },
-  "config": {
-    "preferred-install": "dist"
   }
 }
