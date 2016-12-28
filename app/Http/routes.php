@@ -1,7 +1,6 @@
 <?php
 
 /** @var Router $router */
-
 use Illuminate\Routing\Router;
 
 $router->get('/', ['as' => 'home', 'uses' => 'HomeController@home']);
