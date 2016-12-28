@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
 
@@ -14,30 +15,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (! $this->app->environment(['production'])) {
-            $this->app->register(\Barryvdh\Debugbar\ServiceProvider::class);
-            $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
-        }
-
-        $this->morphMap();
-    }
-
-    /**
-     * Set the morph map for polymorphic relations.
-     *
-     * @return $this
-     */
-    protected function morphMap()
-    {
         Relation::morphMap([
-            \App\Accounts\Role::class,
-            \App\Accounts\User::class,
-            \App\Attachments\Attachment::class,
-            \App\Documents\Document::class,
-            \App\Zinc\Zinc::class,
+            Models\Attachment::class,
+            Models\Contribution::class,
+            Models\Document::class,
+            Models\Event::class,
+            Models\Role::class,
+            Models\Semester::class,
+            Models\User::class,
+            Models\Zinc::class,
         ]);
-
-        return $this;
     }
 
     /**
@@ -47,6 +34,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        if (! $this->app->environment(['production'])) {
+            $this->app->register(\Barryvdh\Debugbar\ServiceProvider::class);
+            $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
+        }
     }
 }

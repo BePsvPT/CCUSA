@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Documents;
+namespace App\Models;
 
-use App\Attachments\Attachment;
-use App\Core\Entity;
 use Auth;
 
-class Document extends Entity
+class Document extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -27,7 +25,7 @@ class Document extends Entity
     /**
      * Get the attachments of the document.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
     public function attachments()
     {

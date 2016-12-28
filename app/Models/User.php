@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Accounts;
+namespace App\Models;
 
-use App\Core\Entity;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 
-class User extends Entity implements AuthenticatableContract
+class User extends Model implements AuthenticatableContract
 {
     use Authenticatable;
 
@@ -34,7 +33,7 @@ class User extends Entity implements AuthenticatableContract
     /**
      * 取得使用者身份.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function roles()
     {

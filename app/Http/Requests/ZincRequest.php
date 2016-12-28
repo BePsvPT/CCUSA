@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Zinc\Zinc;
+use App\Models\Zinc;
 
 class ZincRequest extends Request
 {

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Attachments\Attachment;
-use App\Documents\Document;
 use App\Http\Requests\DocumentRequest;
+use App\Models\Attachment;
+use App\Models\Document;
 use Hashids;
 use Illuminate\Support\Str;
 use Response;

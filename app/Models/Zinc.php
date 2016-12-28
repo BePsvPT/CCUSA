@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Zinc;
+namespace App\Models;
 
-use App\Core\Entity;
 use Carbon\Carbon;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
 
-class Zinc extends Entity implements HasMediaConversions
+class Zinc extends Model implements HasMediaConversions
 {
     use HasMediaTrait;
 

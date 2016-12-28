@@ -5,12 +5,12 @@
     {!! Form::model($zinc, ['route' => ['zinc.manage.update', 'manage' => $zinc->getAttribute('id')], 'method' => 'PATCH', 'class' => 'col s12 offset-m2 m8 offset-l3 l6']) !!}
 
     <div class="input-field col s12">
-      {!! Form::select('year', \App\Zinc\Zinc::year(), null, ['required']) !!}
+      {!! Form::select('year', \App\Models\Zinc::year(), null, ['required']) !!}
       {!! Form::label('year', '年份') !!}
     </div>
 
     <div class="input-field col s12">
-      {!! Form::select('month', \App\Zinc\Zinc::month(), null, ['required']) !!}
+      {!! Form::select('month', \App\Models\Zinc::month(), null, ['required']) !!}
       {!! Form::label('month', '月份') !!}
     </div>
 

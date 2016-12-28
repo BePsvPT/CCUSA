@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Zinc;
 
 use Analytics;
-use App\Zinc\Zinc;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ZincRequest;
+use App\Models\Zinc;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;

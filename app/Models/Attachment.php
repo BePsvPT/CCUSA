@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Attachments;
+namespace App\Models;
 
-use App\Core\Entity;
 use File;
 
-class Attachment extends Entity
+class Attachment extends Model
 {
     /**
      * The attributes that are mass assignable.

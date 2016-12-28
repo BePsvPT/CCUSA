@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Accounts;
+namespace App\Models;
 
-use App\Core\Entity;
-
-class Role extends Entity
+class Role extends Model
 {
     /**
      * Indicates if the model should be timestamped.

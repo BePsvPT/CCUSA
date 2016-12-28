@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Zinc;
 
-use App\Zinc\Zinc;
 use App\Http\Controllers\Controller;
+use App\Models\Zinc;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 

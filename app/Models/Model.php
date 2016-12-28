@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Core;
+namespace App\Models;
 
 use Eloquent;
 use Hashids;
 
-class Entity extends Eloquent
+class Model extends Eloquent
 {
     /**
      * The number of models to return for pagination.
