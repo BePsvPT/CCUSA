@@ -16,7 +16,7 @@
 
         <div class="card-action">
           <a href="{{ route('zinc.index') }}" class="flow-text">
-            <span>CCUZine <i class="fa fa-external-link-square"></i></span>
+            <span>Zinc 會刊 <i class="fa fa-external-link-square"></i></span>
           </a>
         </div>
       </div>
