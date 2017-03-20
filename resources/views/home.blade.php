@@ -6,12 +6,12 @@
       <div class="card hoverable">
         <div class="card-image">
           <a href="{{ route('zinc.index') }}">
-            <img src="{{ asset('assets/media/images/general/guide/zinc.png') }}">
+            <img src="{{ asset('assets/media/images/general/guide/zinc_update_2017_03_20.png') }}">
           </a>
         </div>
 
         <div class="card-content">
-          <p class="grey-text  text-darken-1">點擊，翻開你的精彩生活</p>
+          <p class="grey-text  text-darken-1">一本屬於中正的會刊小誌。</p>
         </div>
 
         <div class="card-action">
