@@ -10,6 +10,6 @@ elixir(function(mix) {
 
   mix.browserSync({
     browser: ['google chrome'],
-    proxy: 'https://ccusa.dev'
+    proxy: 'http://ccusa-ca.dev'
   });
 });

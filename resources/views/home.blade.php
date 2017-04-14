@@ -6,7 +6,7 @@
       <div class="card hoverable">
         <div class="card-image">
           <a href="{{ route('zinc.index') }}">
-            <img src="{{ asset('assets/media/images/general/guide/zinc_update_2017_03_20.png') }}">
+            <img src="{{ asset('assets/media/images/general/guide/zinc.png') }}">
           </a>
         </div>
 
