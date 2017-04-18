@@ -76,7 +76,7 @@ class CooperativeStoreController extends Controller
 
         $this->save($cs, $request);
 
-        return redirect()->route('cooperative-stores.index');
+        return redirect()->route('cooperative-stores.manage');
     }
 
     /**
@@ -107,7 +107,7 @@ class CooperativeStoreController extends Controller
 
         $this->save($cs, $request);
 
-        return redirect()->route('cooperative-stores.index');
+        return redirect()->route('cooperative-stores.manage');
     }
 
     /**
