@@ -11,12 +11,9 @@
   },
   "font-src": {
     "allow": [
-      "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/",
-      "https://cdnjs.cloudflare.com/ajax/libs/lightgallery/",
-      "https://cdnjs.cloudflare.com/ajax/libs/materialize/",
-      "https://fonts.gstatic.com/s/materialicons/"
+      "https://cdnjs.cloudflare.com/ajax/libs/lightgallery/"
     ],
-    "self": false
+    "self": true
   },
   "form-action": {
     "allow": [],
@@ -36,10 +33,8 @@
   "plugin-types": [],
   "script-src": {
     "allow": [
-      "https://ajax.googleapis.com/ajax/libs/jquery/",
       "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/",
       "https://cdnjs.cloudflare.com/ajax/libs/lightgallery/",
-      "https://cdnjs.cloudflare.com/ajax/libs/materialize/",
       "https://www.google-analytics.com"
     ],
     "hashes": [
@@ -51,10 +46,7 @@
   },
   "style-src": {
     "allow": [
-      "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/",
-      "https://cdnjs.cloudflare.com/ajax/libs/lightgallery/",
-      "https://cdnjs.cloudflare.com/ajax/libs/materialize/",
-      "https://fonts.googleapis.com/icon"
+      "https://cdnjs.cloudflare.com/ajax/libs/lightgallery/"
     ],
     "self": true,
     "unsafe-inline": true

@@ -12,10 +12,10 @@
     @show
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>國立中正大學學生會</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
+    {!! Html::style('assets/css/materialize.min.css') !!}
+    {!! Html::style('assets/css/material-icons.css') !!}
+    {!! Html::style('assets/css/font-awesome.min.css') !!}
+    {!! Html::style('assets/css/app.css') !!}
   </head>
   <body class="yellow lighten-5">
     <header class="container">
@@ -30,8 +30,8 @@
       @include('layouts.footer')
     </footer>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js" defer></script>
+    <script src="{{ asset('assets/js/jquery.min.js') }}" defer></script>
+    <script src="{{ asset('assets/js/materialize.min.js') }}" defer></script>
     @stack('scripts')
     <script src="{{ asset('assets/js/all.js') }}" defer></script>
   </body>
