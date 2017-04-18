@@ -1,5 +1,5 @@
 // form - date input tag
-$('.datepicker').pickadate({selectMonths: true, selectYears: 5})
+$('.datepicker').pickadate({selectMonths: true, selectYears: 1})
 
 // form - select tag
 $('select').material_select()
@@ -15,7 +15,7 @@ $(document).on('click', 'a[data-delete]', function () {
     const target = $(this)
 
     $.ajax(target.data('url'), { method: 'DELETE' })
-      .done(() => {
+      .done(function () {
         if (target.data('delete').length > 0) {
           target.closest(target.data('delete'))[0].remove()
         }
@@ -24,6 +24,21 @@ $(document).on('click', 'a[data-delete]', function () {
       })
   }
 });
+
+if (null !== document.querySelector('.tinymce-editor')) {
+  tinymce.init({
+    selector: '.tinymce-editor',
+    language: 'zh_TW',
+    height: 250,
+    menubar: false,
+    plugins: [
+      'advlist autolink lists link charmap preview',
+      'searchreplace fullscreen',
+      'table paste'
+    ],
+    toolbar: 'searchreplace paste undo redo | styleselect | bold italic | bullist numlist outdent indent | table link charmap | preview fullscreen',
+  });
+}
 
 // GA
 (function(i, s, o, g, r, a, m) {

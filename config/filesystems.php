@@ -54,6 +54,11 @@ return [
                 'root'   => public_path('assets/media/images/zinc'),
             ],
 
+            'cooperative-store' => [
+                'driver' => 'local',
+                'root'   => public_path('assets/media/images/cooperative-store'),
+            ],
+
             'default' => [
                 'driver' => 'local',
                 'root'   => public_path('assets/media/default'),

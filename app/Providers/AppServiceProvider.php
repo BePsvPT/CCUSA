@@ -18,6 +18,7 @@ class AppServiceProvider extends ServiceProvider
         Relation::morphMap([
             Models\Attachment::class,
             Models\Contribution::class,
+            Models\CooperativeStore::class,
             Models\Document::class,
             Models\Event::class,
             Models\Role::class,
