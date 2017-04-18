@@ -16,7 +16,7 @@ class CooperativeStoreController extends Controller
      */
     public function __construct()
     {
-//        $this->middleware('role:cooperative-stores', ['except' => ['index', 'show']]);
+        $this->middleware('role:cooperative-stores', ['except' => ['index', 'show']]);
     }
 
     /**
@@ -31,6 +31,26 @@ class CooperativeStoreController extends Controller
             ->get();
 
         return view('cooperative-stores.index', compact('css'));
+    }
+
+    /**
+     * Get cooperative store manage page.
+     *
+     * @param Request $request
+     *
+     * @return \Illuminate\View\View
+     */
+    public function manage(Request $request)
+    {
+        $css = new CooperativeStore;
+
+        if ($request->has('keyword')) {
+            $css = $css->where('name', 'like',  '%'.$request->input('keyword').'%');
+        }
+
+        $css = $css->simplePaginate();
+
+        return view('cooperative-stores.manage', compact('css'));
     }
 
     /**
@@ -116,6 +136,22 @@ class CooperativeStoreController extends Controller
                     ->toCollection('cs-'.$type, 'media.cooperative-store');
             }
         }
+    }
+
+    /**
+     * Delete the specific cooperative store.
+     *
+     * @param int $id
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * @throws \Exception
+     */
+    public function destroy($id)
+    {
+        CooperativeStore::findOrFail($this->transformParameters($id))->delete();
+
+        return $this->ok();
     }
 
     /**

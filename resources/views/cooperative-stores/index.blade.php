@@ -11,10 +11,7 @@
 @section('main')
   @if (Auth::check() && Auth::user()->hasRole(['cooperative-stores']))
     <div class="right-align">
-      <a
-        href="{{ route('cooperative-stores.index') }}"
-        class="btn waves-effect waves-light amber"
-      ><span>管理</span></a>
+      {!! Html::linkRoute('cooperative-stores.manage', '管理', [], ['class' => 'btn waves-effect waves-light amber']) !!}
     </div>
   @endif
 

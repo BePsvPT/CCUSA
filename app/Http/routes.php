@@ -17,6 +17,8 @@ $router->group(['prefix' => 'zinc', 'namespace' => 'Zinc', 'as' => 'zinc.'], fun
 });
 
 $router->resource('documents', 'DocumentController', ['parameters' => ['documents' => 'hashid']]);
+
+$router->get('cooperative-stores/manage', ['as' => 'cooperative-stores.manage', 'uses' => 'CooperativeStoreController@manage']);
 $router->resource('cooperative-stores', 'CooperativeStoreController', ['parameters' => ['cooperative-stores' => 'cs']]);
 
 $router->group(['prefix' => 'auth', 'as' => 'auth.'], function (Router $router) {
