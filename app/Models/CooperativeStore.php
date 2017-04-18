@@ -49,7 +49,7 @@ class CooperativeStore extends Model implements HasMediaConversions
     {
         return sprintf(
             '%s-%s',
-            urlencode($this->getAttribute('name')),
+            rawurlencode(rawurlencode($this->getAttribute('name'))),
             Hashids::encode($this->getKey())
         );
     }

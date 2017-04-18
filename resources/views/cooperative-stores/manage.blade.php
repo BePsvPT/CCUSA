@@ -40,7 +40,7 @@
       @foreach ($css as $cs)
         <tr>
           <td>
-            {!! Html::linkRoute('cooperative-stores.show', $cs->getAttribute('name', ['cs' => $cs->getAttribute('link')]), ['target' => '_blank']) !!}
+            {!! Html::linkRoute('cooperative-stores.show', $cs->getAttribute('name'), ['cs' => $cs->getAttribute('link')], ['target' => '_blank']) !!}
           </td>
           <td>{{ $cs->getAttribute('began_at') }}</td>
           <td>{{ $cs->getAttribute('ended_at') }}</td>
