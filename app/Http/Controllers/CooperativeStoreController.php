@@ -22,15 +22,33 @@ class CooperativeStoreController extends Controller
     /**
      * Get cooperative store list.
      *
+     * @param Request $request
+     *
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
-        $css = CooperativeStore::with('media')
+        $groups = CooperativeStore::groupBy(['group'])
             ->where('published', true)
-            ->get();
+            ->get(['group'])
+            ->map(function (CooperativeStore $store) {
+                return $store->getAttribute('group');
+            })
+            ->groupBy(function ($group) {
+                return array_first(explode('-', $group));
+            })
+            ->toArray();
 
-        return view('cooperative-stores.index', compact('css'));
+        $css = CooperativeStore::with('media')
+            ->where('published', true);
+
+        if ($request->has('group')) {
+            $css->where('group', 'like', $request->input('group').'%');
+        }
+
+        $css = $css->simplePaginate();
+
+        return view('cooperative-stores.index', compact('groups', 'css'));
     }
 
     /**
@@ -60,7 +78,11 @@ class CooperativeStoreController extends Controller
      */
     public function create()
     {
-        return view('cooperative-stores.create');
+        $groups = CooperativeStore::groupBy(['group'])
+            ->get(['group'])
+            ->pluck('group', 'group');
+
+        return view('cooperative-stores.create', compact('groups'));
     }
 
     /**
@@ -80,24 +102,42 @@ class CooperativeStoreController extends Controller
     }
 
     /**
+     * Show cooperative store information.
+     *
+     * @param string $id
+     *
+     * @return \Illuminate\View\View
+     */
+    public function show($id)
+    {
+        $cs = CooperativeStore::findOrFail($this->transformParameters($id));
+
+        return view('cooperative-stores.show', compact('cs'));
+    }
+
+    /**
      * Get cooperative store edit page.
      *
-     * @param int $id
+     * @param string $id
      *
      * @return \Illuminate\View\View
      */
     public function edit($id)
     {
+        $groups = CooperativeStore::groupBy(['group'])
+            ->get(['group'])
+            ->pluck('group', 'group');
+
         $cs = CooperativeStore::findOrFail($this->transformParameters($id));
 
-        return view('cooperative-stores.edit', compact('cs'));
+        return view('cooperative-stores.edit', compact('groups', 'cs'));
     }
 
     /**
      * Update cooperative store.
      *
      * @param CooperativeStoreRequest $request
-     * @param int $id
+     * @param string $id
      *
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -119,18 +159,18 @@ class CooperativeStoreController extends Controller
     protected function save(CooperativeStore $cs, Request $request)
     {
         $cs->fill($request->only([
-            'name', 'began_at', 'ended_at', 'phone',
-            'address', 'description', 'business_hours',
+            'name', 'began_at', 'ended_at', 'phone', 'address',
+            'description', 'business_hours', 'group',
         ]))
             ->setAttribute('published', boolval($request->input('published')))
             ->save();
 
         foreach (['cover', 'gallery'] as $type) {
-            foreach ($request->file($type, []) as $file) {
-                if ($request->isMethod('PATCH')) {
-                    $cs->clearMediaCollection('cs-'.$type);
-                }
+            if ($request->hasFile($type)) {
+                $cs->clearMediaCollection('cs-'.$type);
+            }
 
+            foreach ($request->file($type, []) as $file) {
                 $cs->addMedia($file)
                     ->setFileName(Str::random(8).'.'.$file->guessExtension())
                     ->toCollection('cs-'.$type, 'media.cooperative-store');
@@ -141,7 +181,7 @@ class CooperativeStoreController extends Controller
     /**
      * Delete the specific cooperative store.
      *
-     * @param int $id
+     * @param string $id
      *
      * @return \Symfony\Component\HttpFoundation\Response
      *

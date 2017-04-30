@@ -30,6 +30,18 @@
   </div>
 
   <div class="input-field">
+    <i class="material-icons prefix">group_work</i>
+    {!! Form::text('group', null, ['list' => 'groupName', 'class' => 'validate', 'required', 'maxlength' => 48]) !!}
+    {!! Form::label('group', '群組') !!}
+
+    <datalist id="groupName">
+      @foreach($groups as $item)
+        <option value="{{ $item }}">{{ $item }}</option>
+      @endforeach
+    </datalist>
+  </div>
+
+  <div class="input-field">
     <p>描述</p>
     {!! Form::textarea('description', null, ['class' => 'tinymce-editor']) !!}
   </div>

@@ -15,6 +15,13 @@ Breadcrumbs::register('cooperative-stores.manage', function (Generator $generato
     $generator->push('管理', route('cooperative-stores.manage'));
 });
 
+Breadcrumbs::register('cooperative-stores.show', function (Generator $generator, $cs) {
+    $generator->parent('cooperative-stores.index');
+
+    $name = urldecode(array_first(explode('-', $cs)));
+    $generator->push($name, route('cooperative-stores.show', ['cs' => $cs]));
+});
+
 Breadcrumbs::register('cooperative-stores.create', function (Generator $generator) {
     $generator->parent('cooperative-stores.manage');
 

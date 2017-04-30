@@ -1,8 +1,18 @@
-// form - date input tag
-$('.datepicker').pickadate({selectMonths: true, selectYears: 1})
+$(function() {
+  // form - date input tag
+  $('.datepicker').pickadate({selectMonths: true, selectYears: 1})
 
-// form - select tag
-$('select').material_select()
+  // form - select tag
+  $('select').material_select()
+
+  // side-nav
+  $(".button-collapse").sideNav()
+
+  // slider
+  $('.slider').slider({
+    height: 500
+  })
+})
 
 $.ajaxSetup({
   headers: {

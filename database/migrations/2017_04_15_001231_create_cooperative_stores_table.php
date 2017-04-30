@@ -22,6 +22,7 @@ class CreateCooperativeStoresTable extends Migration
             $table->string('address', 64);
             $table->string('description', 5000);
             $table->string('business_hours', 2000);
+            $table->string('group', 48)->index();
             $table->boolean('published')->default(false);
         });
     }

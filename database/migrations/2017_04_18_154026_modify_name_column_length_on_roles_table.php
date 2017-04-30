@@ -26,7 +26,8 @@ class ModifyNameColumnLengthOnRolesTable extends Migration
     public function down()
     {
         Schema::table('roles', function (Blueprint $table) {
-            $table->string('name', 16)->change();
+            // do not shorten string length
+            // $table->string('name', 16)->change();
         });
     }
 }

@@ -1,1 +1,87 @@
-header,main{margin-top:35px!important}html{overflow-y:scroll!important}body{display:-webkit-box;display:flex;min-height:100vh;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column}main{-webkit-box-flex:1;flex:1 0 auto}.breadcrumb-nav{height:auto;background-color:transparent!important;box-shadow:none!important;border-bottom:4px #fff59d solid}.breadcrumb-nav img{display:block;margin:0 auto}.breadcrumb-nav a{display:inline-block;font-size:2em;color:#ff9800!important}.breadcrumb-nav a:first-child{vertical-align:bottom}@media only screen and (max-width:600px){.breadcrumb-nav a{font-size:1.55em}.breadcrumb-nav a:first-child{display:block}}.breadcrumb-nav a:before{color:#f57c00}.breadcrumb-nav a:nth-child(2):before{content:""}.document-item .secondary-content span{vertical-align:super}.document-item .secondary-content a{height:27px;line-height:27px;padding:0 1.5rem;margin-left:10px;vertical-align:baseline}.document-item .secondary-content a i{font-size:1rem}
+html {
+  overflow-y: scroll !important;
+}
+
+body {
+  display: -webkit-box;
+  display: flex;
+  min-height: 100vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+}
+
+header {
+  margin-top: 35px !important;
+}
+
+main {
+  -webkit-box-flex: 1;
+  flex: 1 0 auto;
+  margin-top: 35px !important;
+}
+
+.breadcrumb-nav {
+  height: auto;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border-bottom: 4px #fff59d solid;
+}
+
+.breadcrumb-nav img {
+  display: block;
+  margin: 0 auto;
+}
+
+.breadcrumb-nav a {
+  display: inline-block;
+  font-size: 2em;
+  color: #ff9800 !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .breadcrumb-nav a {
+    font-size: 1.55em;
+  }
+}
+
+.breadcrumb-nav a:first-child {
+  vertical-align: bottom;
+}
+
+@media only screen and (max-width: 600px) {
+  .breadcrumb-nav a:first-child {
+    display: block;
+  }
+}
+
+.breadcrumb-nav a:before {
+  color: #f57c00;
+}
+
+.breadcrumb-nav a:nth-child(2):before {
+  content: "";
+}
+
+.document-item .secondary-content span {
+  vertical-align: super;
+}
+
+.document-item .secondary-content a {
+  height: 27px;
+  line-height: 27px;
+  padding: 0 1.5rem;
+  margin-left: 10px;
+  vertical-align: baseline;
+}
+
+.document-item .secondary-content a i {
+  font-size: 1rem;
+}
+
+table.cooperative-store-info tr td:first-child {
+  vertical-align: top;
+  text-align: right;
+}
+
+/*# sourceMappingURL=app.css.map */

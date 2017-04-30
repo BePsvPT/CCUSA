@@ -25,12 +25,14 @@
       ><i class="fa fa-plus"></i></a>
     </div>
   </div>
-  <table class="bordered striped highlight centered">
+
+  <table class="bordered striped highlight centered" style="margin-bottom: 2rem;">
     <thead>
       <tr>
         <th>店名</th>
         <th>開始日期</th>
         <th>結束日期</th>
+        <th>群組</th>
         <th>發布</th>
         <th>編輯 / 刪除</th>
       </tr>
@@ -44,6 +46,7 @@
           </td>
           <td>{{ $cs->getAttribute('began_at') }}</td>
           <td>{{ $cs->getAttribute('ended_at') }}</td>
+          <td>{{ $cs->getAttribute('group') }}</td>
           <td>
             <i class="fa {{ $cs->getAttribute('published') ? 'fa-check green-text' : 'fa-times red-text' }}"></i>
           </td>
@@ -64,7 +67,7 @@
 
       @if($css->isEmpty())
         <tr>
-          <td colspan="3">無資料</td>
+          <td colspan="5">無資料</td>
         </tr>
       @endif
     </tbody>

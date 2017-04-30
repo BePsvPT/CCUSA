@@ -74,3 +74,12 @@ main {
     }
   }
 }
+
+table.cooperative-store-info {
+  tr {
+    td:first-child {
+      vertical-align: top;
+      text-align: right;
+    }
+  }
+}

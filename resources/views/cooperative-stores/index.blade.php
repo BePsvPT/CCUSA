@@ -10,10 +10,14 @@
 
 @section('main')
   @if (Auth::check() && Auth::user()->hasRole(['cooperative-stores']))
-    <div class="right-align">
+    <div class="pull-right">
       {!! Html::linkRoute('cooperative-stores.manage', '管理', [], ['class' => 'btn waves-effect waves-light amber']) !!}
     </div>
   @endif
+
+  @include('cooperative-stores.side-nav', ['groups' => $groups])
+
+  <br><br>
 
   @foreach ($css->chunk(3) as $chunk)
     <div class="row">
@@ -38,4 +42,6 @@
       @endforeach
     </div>
   @endforeach
+
+  @include('layouts.simple-paginate', ['pagination' => $css])
 @endsection
