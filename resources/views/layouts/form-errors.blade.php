@@ -1,5 +1,5 @@
-@if (count($errors) > 0)
-  <div class="input-field col s12">
+@if (! $errors->isEmpty())
+  <div class="input-field" style="margin-bottom: 2rem;">
     <div class="red-text">
       <ul class="collection">
         @foreach ($errors->all() as $error)

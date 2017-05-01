@@ -6,6 +6,10 @@
   <meta property="og:image" content="{{ asset($cs->getFirstMedia('cs-cover')->getUrl()) }}">
 @endsection
 
+@section('title')
+  特約商店 - {{ $cs->getAttribute('name')  }} |
+@endsection
+
 @section('main')
   <img class="materialboxed" width="100%" src="{{ $cs->getFirstMedia('cs-cover')->getUrl() }}">
 

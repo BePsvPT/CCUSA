@@ -1,12 +1,13 @@
 @extends('layouts.master')
 
 @section('main')
-  @if (Auth::check() && Auth::user()->hasRole(['documents']))
+  @if (Auth::check() && Auth::user()->hasRole('documents'))
     <div class="right-align">
-      <a
-        href="{{ route('documents.create') }}"
-        class="btn waves-effect waves-light light-green"
-      ><i class="fa fa-plus"></i></a>
+      @include('components.internal-link', [
+        'href' => route('documents.create'),
+        'class' => 'btn waves-effect waves-light light-green',
+        'icon' => 'plus',
+      ])
     </div>
   @endif
 
@@ -27,10 +28,11 @@
             <span>{{ human_filesize($attachment->getAttribute('size')) }}</span>
 
             @if (Auth::check() && Auth::user()->hasRole(['documents']))
-              <a
-                href="{{ route('documents.edit', ['hashid' => $document->getHashId()]) }}"
-                class="btn waves-effect waves-light orange"
-              ><i class="fa fa-pencil"></i></a>
+              @include('components.internal-link', [
+                'href' => route('documents.edit', ['hashid' => $document->getHashId()]),
+                'class' => 'btn waves-effect waves-light orange',
+                'icon' => 'pencil',
+              ])
 
               <a
                 class="btn waves-effect waves-light red"

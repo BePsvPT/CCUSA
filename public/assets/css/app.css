@@ -18,7 +18,14 @@ header {
 main {
   -webkit-box-flex: 1;
   flex: 1 0 auto;
-  margin-top: 35px !important;
+  margin: 1rem auto !important;
+}
+
+.none-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .breadcrumb-nav {

@@ -7,9 +7,4 @@ elixir.config.publicPath = 'public/assets';
 elixir(function(mix) {
   mix.sass(['app.scss'])
     .scripts(['app.js', 'zinc-analytics.js']);
-
-  mix.browserSync({
-    browser: ['google chrome'],
-    proxy: 'http://ccusa-ca.dev'
-  });
 });

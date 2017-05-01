@@ -73,5 +73,5 @@
     </tbody>
   </table>
 
-  @include('layouts.simple-paginate', ['pagination' => $css])
+  {!! $css->render() !!}
 @endsection

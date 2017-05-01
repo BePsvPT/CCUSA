@@ -14,7 +14,11 @@ header {
 
 main {
   flex: 1 0 auto;
-  margin-top: 35px !important
+  margin: 1rem auto !important;
+}
+
+.none-select {
+  user-select: none;
 }
 
 .breadcrumb-nav {

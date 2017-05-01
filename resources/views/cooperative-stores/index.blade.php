@@ -8,6 +8,10 @@
   @endforeach
 @endsection
 
+@section('title')
+  特約商店 |
+@endsection
+
 @section('main')
   @if (Auth::check() && Auth::user()->hasRole(['cooperative-stores']))
     <div class="pull-right">
@@ -43,5 +47,5 @@
     </div>
   @endforeach
 
-  @include('layouts.simple-paginate', ['pagination' => $css])
+  {!! $css->render() !!}
 @endsection
