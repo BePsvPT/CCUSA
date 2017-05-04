@@ -17,6 +17,10 @@ main {
   margin: 1rem auto !important;
 }
 
+blockquote {
+  border-left-color: #64b5f6;
+}
+
 .none-select {
   user-select: none;
 }
@@ -82,8 +86,16 @@ main {
 table.cooperative-store-info {
   tr {
     td:first-child {
-      vertical-align: top;
       text-align: right;
+      width: 15%;
+
+      @media only screen and (min-width: 600px) and (max-width: 992px) {
+        width: 20%;
+      }
+
+      @media only screen and (max-width: 600px) {
+        width: 30%;
+      }
     }
   }
 }

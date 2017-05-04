@@ -10,7 +10,7 @@ $(function() {
 
   // slider
   $('.slider').slider({
-    height: 500
+    height: 450
   })
 })
 

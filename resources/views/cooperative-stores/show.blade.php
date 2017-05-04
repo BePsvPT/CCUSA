@@ -11,38 +11,59 @@
 @endsection
 
 @section('main')
-  <img class="materialboxed" width="100%" src="{{ $cs->getFirstMedia('cs-cover')->getUrl() }}">
+  <img
+    class="materialboxed"
+    style="margin: 1rem auto;"
+    width="90%"
+    src="{{ $cs->getFirstMedia('cs-cover')->getUrl() }}"
+  >
 
   <table class="cooperative-store-info">
     <tbody>
       <tr>
-        <td>店名：</td>
+        <td>
+          <div class="chip red darken-1 white-text">店　　名</div>
+        </td>
         <td>{{ $cs->getAttribute('name') }}</td>
       </tr>
       <tr>
-        <td>開始日期：</td>
-        <td>{{ $cs->getAttribute('began_at') }}</td>
+        <td>
+          <div class="chip red darken-1 white-text">日　　期</div>
+        </td>
+        <td>{{ $cs->getAttribute('began_at') }} ~ {{ $cs->getAttribute('ended_at') }}</td>
       </tr>
       <tr>
-        <td>結束日期：</td>
-        <td>{{ $cs->getAttribute('ended_at') }}</td>
-      </tr>
-      <tr>
-        <td>電話：</td>
+        <td>
+          <div class="chip red darken-1 white-text">電　　話</div>
+        </td>
         <td>{{ $cs->getAttribute('phone') }}</td>
       </tr>
       <tr>
-        <td>地址：</td>
-        <td>{{ $cs->getAttribute('address') }}</td>
+        <td>
+          <div class="chip red darken-1 white-text">地　　址</div>
+        </td>
+        <td>
+          <span>{{ $cs->getAttribute('address') }}</span>
+
+          <a
+            href="https://www.google.com/maps?q={{ rawurlencode($cs->getAttribute('address')) }}"
+            target="_blank"
+            style="margin-left: .3rem;"
+          ><i class="fa fa-map-marker" aria-hidden="true"></i></a>
+        </td>
       </tr>
       <tr>
-        <td>營業時間：</td>
+        <td>
+          <div class="chip red darken-1 white-text">營業時間</div>
+        </td>
         <td>
           <blockquote>{!! $cs->getAttribute('business_hours') !!}</blockquote>
         </td>
       </tr>
       <tr>
-        <td>描述：</td>
+        <td>
+          <div class="chip red darken-1 white-text">描　　述</div>
+        </td>
         <td>
           <blockquote>{!! $cs->getAttribute('description') !!}</blockquote>
         </td>
@@ -51,7 +72,7 @@
   </table>
 
   @if(! $cs->getMedia('cs-gallery')->isEmpty())
-    <div class="slider" style="margin-bottom: 2rem;">
+    <div class="slider" style="width: 85%; margin: 1rem auto;">
       <ul class="slides">
         @foreach($cs->getMedia('cs-gallery') as $image)
           <li>
