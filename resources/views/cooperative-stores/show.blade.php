@@ -57,7 +57,7 @@
           <div class="chip red darken-1 white-text">營業時間</div>
         </td>
         <td>
-          <blockquote>{!! $cs->getAttribute('business_hours') !!}</blockquote>
+          <p>{!! $cs->getAttribute('business_hours') !!}</p>
         </td>
       </tr>
       <tr>
@@ -65,7 +65,7 @@
           <div class="chip red darken-1 white-text">描　　述</div>
         </td>
         <td>
-          <blockquote>{!! $cs->getAttribute('description') !!}</blockquote>
+          <p>{!! $cs->getAttribute('description') !!}</p>
         </td>
       </tr>
     </tbody>
