@@ -2,8 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Zinc;
-
 class CooperativeStoreRequest extends Request
 {
     /**

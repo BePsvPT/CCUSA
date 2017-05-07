@@ -8,7 +8,6 @@ Breadcrumbs::register('cooperative-stores.index', function (Generator $generator
     $generator->push('特約商店', route('cooperative-stores.index'));
 });
 
-
 Breadcrumbs::register('cooperative-stores.manage', function (Generator $generator) {
     $generator->parent('cooperative-stores.index');
 

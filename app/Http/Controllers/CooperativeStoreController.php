@@ -63,7 +63,7 @@ class CooperativeStoreController extends Controller
         $css = new CooperativeStore;
 
         if ($request->has('keyword')) {
-            $css = $css->where('name', 'like',  '%'.$request->input('keyword').'%');
+            $css = $css->where('name', 'like', '%'.$request->input('keyword').'%');
         }
 
         $css = $css->simplePaginate();

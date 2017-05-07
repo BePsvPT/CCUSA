@@ -2,6 +2,6 @@
 
 [![StyleCI](https://styleci.io/repos/47131268/shield)](https://styleci.io/repos/47131268)
 
-#Copyright
+# Copyright
 
 All rights reserved
