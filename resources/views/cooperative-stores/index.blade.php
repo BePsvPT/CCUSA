@@ -14,38 +14,42 @@
 
 @section('main')
   @if (Auth::check() && Auth::user()->hasRole(['cooperative-stores']))
-    <div class="pull-right">
+    <div class="{{ $css->isEmpty() ? 'right-align' : 'pull-right' }}">
       {!! Html::linkRoute('cooperative-stores.manage', '管理', [], ['class' => 'btn waves-effect waves-light amber']) !!}
     </div>
   @endif
 
-  @include('cooperative-stores.side-nav', ['groups' => $groups])
+  @if ($css->isEmpty())
+    @include('components.empty-data')
+  @else
+    @include('cooperative-stores.side-nav', ['groups' => $groups])
 
-  <br><br>
+    <br><br>
 
-  @foreach ($css->chunk(3) as $chunk)
-    <div class="row">
-      @if ($chunk->count() < 3)
-        <div class="hide-on-med-and-down col l{{ 6 - $chunk->count() * 2 }}"><span>　</span></div>
-      @endif
+    @foreach ($css->chunk(3) as $chunk)
+      <div class="row">
+        @if ($chunk->count() < 3)
+          <div class="hide-on-med-and-down col l{{ 6 - $chunk->count() * 2 }}"><span>　</span></div>
+        @endif
 
-      @foreach ($chunk as $cs)
-        <div class="col s12 l4">
-          <div class="card hoverable">
-            <div class="card-image">
-              <a href="{{ route('cooperative-stores.show', ['cs' => $cs->getAttribute('link')]) }}">
-                {!! Html::image($cs->getFirstMedia('cs-cover')->getUrl()) !!}
-              </a>
-            </div>
+        @foreach ($chunk as $cs)
+          <div class="col s12 l4">
+            <div class="card hoverable">
+              <div class="card-image">
+                <a href="{{ route('cooperative-stores.show', ['cs' => $cs->getAttribute('link')]) }}">
+                  {!! Html::image($cs->getFirstMedia('cs-cover')->getUrl()) !!}
+                </a>
+              </div>
 
-            <div class="card-action flow-text">
-              {!! Html::linkRoute('cooperative-stores.show', $cs->getAttribute('name'), ['cs' => $cs->getAttribute('link')]) !!}
+              <div class="card-action flow-text">
+                {!! Html::linkRoute('cooperative-stores.show', $cs->getAttribute('name'), ['cs' => $cs->getAttribute('link')]) !!}
+              </div>
             </div>
           </div>
-        </div>
-      @endforeach
-    </div>
-  @endforeach
+        @endforeach
+      </div>
+    @endforeach
 
-  {!! $css->render() !!}
+    {!! $css->render() !!}
+  @endif
 @endsection

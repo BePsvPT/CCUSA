@@ -39,7 +39,7 @@
     </thead>
 
     <tbody>
-      @foreach ($css as $cs)
+      @forelse ($css as $cs)
         <tr>
           <td>
             {!! Html::linkRoute('cooperative-stores.show', $cs->getAttribute('name'), ['cs' => $cs->getAttribute('link')], ['target' => '_blank']) !!}
@@ -63,13 +63,11 @@
             ><i class="fa fa-trash"></i></a>
           </td>
         </tr>
-      @endforeach
-
-      @if($css->isEmpty())
+      @empty
         <tr>
-          <td colspan="5">無資料</td>
+          <td colspan="6">無資料</td>
         </tr>
-      @endif
+      @endforelse
     </tbody>
   </table>
 

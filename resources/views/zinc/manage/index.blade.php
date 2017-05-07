@@ -19,7 +19,7 @@
     </thead>
 
     <tbody>
-      @foreach ($zincs as $zinc)
+      @forelse ($zincs as $zinc)
         <tr>
           <td>{{ $zinc->getAttribute('year') }} 年 {{ $zinc->getAttribute('month') }} 月份</td>
           <td>
@@ -38,7 +38,11 @@
             ><i class="fa fa-trash"></i></a>
           </td>
         </tr>
-      @endforeach
+      @empty
+        <tr>
+          <td colspan="4">無資料</td>
+        </tr>
+      @endforelse
     </tbody>
   </table>
 

@@ -8,6 +8,10 @@
   @endforeach
 @endsection
 
+@section('title')
+  ZINE |
+@endsection
+
 @section('main')
   @if (Auth::check() && Auth::user()->hasRole(['zinc']))
     <div class="right-align">
@@ -23,7 +27,7 @@
     </div>
   @endif
 
-  @foreach ($zincs->chunk(3) as $chunk)
+  @forelse ($zincs->chunk(3) as $chunk)
     <div class="row">
       @if ($chunk->count() < 3)
         <div class="hide-on-med-and-down col l{{ 6 - $chunk->count() * 2 }}"><span>　</span></div>
@@ -46,5 +50,7 @@
         </div>
       @endforeach
     </div>
-  @endforeach
+  @empty
+    @include('components.empty-data')
+  @endforelse
 @endsection

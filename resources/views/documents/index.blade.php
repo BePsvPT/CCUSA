@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+  文件 |
+@endsection
+
 @section('main')
   @if (Auth::check() && Auth::user()->hasRole('documents'))
     <div class="right-align">
@@ -11,7 +15,7 @@
     </div>
   @endif
 
-  @foreach($documents as $name => $group)
+  @forelse($documents as $name => $group)
     <ul class="collection with-header">
       <li class="collection-header"><h5>{{ $name }}</h5></li>
 
@@ -44,5 +48,7 @@
         </li>
       @endforeach
     </ul>
-  @endforeach
+  @empty
+    @include('components.empty-data')
+  @endforelse
 @endsection
