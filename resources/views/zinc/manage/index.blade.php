@@ -42,5 +42,5 @@
     </tbody>
   </table>
 
-  @include('layouts.simple-paginate', ['pagination' => $zincs])
+  {!! $zincs->render() !!}
 @endsection

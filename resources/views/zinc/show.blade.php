@@ -10,14 +10,14 @@
     <meta property="og:locale" content="zh_TW">
     <title>國立中正大學學生會會刊</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.18/css/lightgallery.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    {!! Html::style('assets/css/materialize.min.css') !!}
     <style>*{font-family:"Microsoft yahei","Roboto",sans-serif}</style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    {!! Html::script('assets/js/jquery.min.js') !!}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.18/js/lightgallery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.18/js/lg-thumbnail.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.18/js/lg-fullscreen.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.18/js/lg-zoom.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js" defer></script>
+    {!! Html::script('assets/js/materialize.min.js') !!}
   </head>
   <body>
     <div class="container">

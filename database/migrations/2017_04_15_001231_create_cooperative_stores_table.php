@@ -15,7 +15,7 @@ class CreateCooperativeStoresTable extends Migration
     {
         Schema::create('cooperative_stores', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 191);
+            $table->string('name', 191)->index();
             $table->date('began_at');
             $table->date('ended_at');
             $table->string('phone', 16);
@@ -24,6 +24,8 @@ class CreateCooperativeStoresTable extends Migration
             $table->string('business_hours', 2000);
             $table->string('group', 48)->index();
             $table->boolean('published')->default(false);
+
+            $table->index(['published', 'group']);
         });
     }
 

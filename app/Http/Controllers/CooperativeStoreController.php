@@ -46,7 +46,7 @@ class CooperativeStoreController extends Controller
             $css->where('group', 'like', $request->input('group').'%');
         }
 
-        $css = $css->simplePaginate();
+        $css = $css->simplePaginate(9);
 
         return view('cooperative-stores.index', compact('groups', 'css'));
     }
