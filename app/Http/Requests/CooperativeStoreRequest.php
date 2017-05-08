@@ -14,7 +14,7 @@ class CooperativeStoreRequest extends Request
         $rules = [
             'name' => 'required|string|max:191',
             'began_at' => 'required|date',
-            'ended_at' => 'required|date',
+            'ended_at' => 'required|date|after:began_at',
             'phone' => 'required|string|max:16',
             'address' => 'required|string|max:64',
             'description' => 'required|string',
