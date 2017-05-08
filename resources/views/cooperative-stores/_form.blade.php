@@ -1,4 +1,6 @@
 <div>
+  @include('layouts.form-errors')
+
   <div class="input-field">
     <i class="material-icons prefix">recent_actors</i>
     {!! Form::label('name', '店名') !!}
@@ -86,8 +88,6 @@
       <i class="fa fa-paper-plane right"></i>
     </button>
   </div>
-
-  @include('layouts.form-errors')
 </div>
 
 @push('scripts')
