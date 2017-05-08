@@ -139,6 +139,11 @@ return [
         'title'                 => '標題',
         'username'              => '使用者名',
         'year'                  => '年',
+
+        'began_at'              => '開始日期',
+        'business_hours'        => '營業時間',
+        'ended_at'              => '結束日期',
+        'group'                 => '群組',
     ],
 
 ];
