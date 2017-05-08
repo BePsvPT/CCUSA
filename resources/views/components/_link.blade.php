@@ -1,6 +1,7 @@
 <a
   href="{{ $href }}"
   target="{{ $target or '_self' }}"
+  rel="noopener noreferrer"
   class="{{ $class or '' }}"
 >
   @if (isset($icon))

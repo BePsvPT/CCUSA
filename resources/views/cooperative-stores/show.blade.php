@@ -48,6 +48,7 @@
           <a
             href="https://www.google.com/maps?q={{ rawurlencode($cs->getAttribute('address')) }}"
             target="_blank"
+            rel="noopener noreferrer"
             style="margin-left: .3rem;"
           ><i class="fa fa-map-marker" aria-hidden="true"></i></a>
         </td>
