@@ -15,15 +15,17 @@
 @section('main')
   @if (Auth::check() && Auth::user()->hasRole(['zinc']))
     <div class="right-align">
-      <a
-        href="{{ route('zinc.manage.index') }}"
-        class="btn waves-effect waves-light amber"
-      ><span>管理</span></a>
+      @include('components.internal-link', [
+        'href' => route('zinc.manage.index'),
+        'class' => 'btn waves-effect waves-light amber',
+        'title' => '管理',
+      ])
 
-      <a
-        href="{{ route('zinc.manage.analytics') }}"
-        class="btn waves-effect waves-light light-blue"
-      ><span>流量</span></a>
+      @include('components.internal-link', [
+        'href' => route('zinc.manage.analytics'),
+        'class' => 'btn waves-effect waves-light light-blue',
+        'title' => '流量',
+      ])
     </div>
   @endif
 
@@ -44,7 +46,10 @@
             </div>
 
             <div class="card-action flow-text">
-              {!! link_to_route('zinc.show', $zinc->getAttribute('topic'), ['year' => $zinc->getAttribute('year'), 'month' => $zinc->getAttribute('month')], ['target' => '_blank']) !!}
+              @include('components.external-link', [
+                'href' => route('zinc.show', ['year' => $zinc->getAttribute('year'), 'month' => $zinc->getAttribute('month')]),
+                'title' => $zinc->getAttribute('topic'),
+              ])
             </div>
           </div>
         </div>

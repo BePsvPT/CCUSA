@@ -1,8 +1,7 @@
 {
-  "name": "bepsvpt/ccusa",
+  "name": "ccusa/website",
   "description": "National Chung Cheng University Student Association",
   "keywords": ["CCU", "CCUSA"],
-  "license": "MIT",
   "type": "project",
   "require": {
     "php": "^7.0",

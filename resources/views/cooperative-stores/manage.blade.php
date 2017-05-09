@@ -16,13 +16,14 @@
           </button>
         </div>
       </div>
-    {{ Form::close() }}
+    {!! Form::close() !!}
 
     <div class="col s4 right-align">
-      <a
-        href="{{ route('cooperative-stores.create') }}"
-        class="btn waves-effect waves-light light-green"
-      ><i class="fa fa-plus"></i></a>
+      @include('components.internal-link', [
+        'href' => route('cooperative-stores.create'),
+        'class' => 'btn waves-effect waves-light light-green',
+        'icon' => 'plus',
+      ])
     </div>
   </div>
 
@@ -42,25 +43,27 @@
       @forelse ($css as $cs)
         <tr>
           <td>
-            {!! Html::linkRoute('cooperative-stores.show', $cs->getAttribute('name'), ['cs' => $cs->getAttribute('link')], ['target' => '_blank']) !!}
+            @include('components.external-link', [
+              'href' => route('cooperative-stores.show', ['cs' => $cs->getAttribute('link')]),
+              'title' => $cs->getAttribute('name'),
+            ])
           </td>
           <td>{{ $cs->getAttribute('began_at') }}</td>
           <td>{{ $cs->getAttribute('ended_at') }}</td>
           <td>{{ $cs->getAttribute('group') }}</td>
           <td>
-            <i class="fa {{ $cs->getAttribute('published') ? 'fa-check green-text' : 'fa-times red-text' }}"></i>
+            @include('components.published-icon', ['published' => $cs->getAttribute('published')])
           </td>
           <td>
-            <a
-              href="{{ route('cooperative-stores.edit', ['cs' => $cs->getAttribute('link')]) }}"
-              class="btn waves-effect waves-light orange"
-            ><i class="fa fa-pencil"></i></a>
+            @include('components.internal-link', [
+              'href' => route('cooperative-stores.edit', ['cs' => $cs->getAttribute('link')]),
+              'class' => 'btn waves-effect waves-light orange',
+              'icon' => 'pencil',
+            ])
 
-            <a
-              class="btn waves-effect waves-light red"
-              data-delete="tr"
-              data-url="{{ route('cooperative-stores.destroy', ['cs' => $cs->getAttribute('link')])  }}"
-            ><i class="fa fa-trash"></i></a>
+            @include('components.delete-button', [
+              'url' => route('cooperative-stores.destroy', ['cs' => $cs->getAttribute('link')]),
+            ])
           </td>
         </tr>
       @empty

@@ -15,7 +15,11 @@
 @section('main')
   @if (Auth::check() && Auth::user()->hasRole(['cooperative-stores']))
     <div class="{{ $css->isEmpty() ? 'right-align' : 'pull-right' }}">
-      {!! Html::linkRoute('cooperative-stores.manage', '管理', [], ['class' => 'btn waves-effect waves-light amber']) !!}
+      @include('components.internal-link', [
+        'href' => route('cooperative-stores.manage'),
+        'class' => 'btn waves-effect waves-light amber',
+        'title' => '管理',
+      ])
     </div>
   @endif
 
@@ -42,7 +46,10 @@
               </div>
 
               <div class="card-action flow-text">
-                {!! Html::linkRoute('cooperative-stores.show', $cs->getAttribute('name'), ['cs' => $cs->getAttribute('link')]) !!}
+                @include('components.internal-link', [
+                  'href' => route('cooperative-stores.show', ['cs' => $cs->getAttribute('link')]),
+                  'title' => $cs->getAttribute('name'),
+                ])
               </div>
             </div>
           </div>

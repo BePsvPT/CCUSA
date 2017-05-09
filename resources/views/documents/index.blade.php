@@ -23,10 +23,10 @@
         @php($attachment = $document->getRelation('attachments')->first())
 
         <li class="collection-item document-item">
-          <a
-            href="{{ route('documents.show', ['hashid' => $document->getHashId()]) }}"
-            target="_blank"
-          >{{ $attachment->getAttribute('name') }}</a>
+          @include('components.external-link', [
+            'href' => route('documents.show', ['hashid' => $document->getHashId()]),
+            'title' => $attachment->getAttribute('name'),
+          ])
 
           <div class="secondary-content">
             <span>{{ human_filesize($attachment->getAttribute('size')) }}</span>
@@ -38,11 +38,10 @@
                 'icon' => 'pencil',
               ])
 
-              <a
-                class="btn waves-effect waves-light red"
-                data-delete="li"
-                data-url="{{ route('documents.destroy', ['hashid' => $document->getHashId()]) }}"
-              ><i class="fa fa-trash"></i></a>
+              @include('components.delete-button', [
+                'target' => 'li',
+                'url' => route('documents.destroy', ['hashid' => $document->getHashId()]),
+              ])
             @endif
           </div>
         </li>

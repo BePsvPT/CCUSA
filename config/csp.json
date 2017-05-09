@@ -33,7 +33,6 @@
   "plugin-types": [],
   "script-src": {
     "allow": [
-      "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/",
       "https://cdnjs.cloudflare.com/ajax/libs/lightgallery/",
       "https://www.google-analytics.com"
     ],
