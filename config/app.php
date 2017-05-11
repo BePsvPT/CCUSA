@@ -175,6 +175,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Bepsvpt\SecureHeaders\SecureHeadersServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
