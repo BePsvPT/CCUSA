@@ -5,23 +5,23 @@ namespace App\Http\Controllers;
 use App\Http\Requests\DocumentRequest;
 use App\Models\Attachment;
 use App\Models\Document;
-use Hashids;
 use Illuminate\Support\Str;
 use Response;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class DocumentController extends Controller
 {
     /**
-     * DocumentController constructor.
+     * Constructor.
      */
     public function __construct()
     {
+        parent::__construct();
+
         $this->middleware('role:documents', ['except' => ['index', 'show']]);
     }
 
     /**
-     * Get the documents list page.
+     * 文件首頁.
      *
      * @return \Illuminate\View\View
      */
@@ -33,23 +33,26 @@ class DocumentController extends Controller
             ->get(['id', 'group', 'published'])
             ->groupBy('group');
 
+        $this->og->title('學生會二三事 | 國立中正大學學生會')
+            ->image(asset('assets/media/images/general/guide/document.png'));
+
         return view('documents.index', compact('documents'));
     }
 
     /**
-     * Get the document upload page.
+     * 文件新增頁面.
      *
      * @return \Illuminate\View\View
      */
     public function create()
     {
-        $groups = Document::groupBy(['group'])->get(['group'])->pluck('group', 'group');
+        $groups = $this->groups();
 
         return view('documents.create', compact('groups'));
     }
 
     /**
-     * Create a document.
+     * 新增文件.
      *
      * @param DocumentRequest $request
      *
@@ -63,7 +66,7 @@ class DocumentController extends Controller
 
         $attachment = $document->attachments()->save(new Attachment([
             'name'      => $request->input('name'),
-            'file_name' => Str::quickRandom(6).'.'.$request->file('attachment')->guessExtension(),
+            'file_name' => Str::random(6).'.'.$request->file('attachment')->guessExtension(),
             'mime_type' => $request->file('attachment')->getMimeType(),
             'size'      => $request->file('attachment')->getSize(),
         ]));
@@ -77,7 +80,7 @@ class DocumentController extends Controller
     }
 
     /**
-     * Download the document.
+     * 下載文件.
      *
      * @param string $hashid
      *
@@ -87,7 +90,7 @@ class DocumentController extends Controller
     {
         $attachment = Document::with(['attachments'])
             ->guest()
-            ->findOrFail($this->transformHashid($hashid))
+            ->findOrFail($this->decodeHashid($hashid))
             ->getRelation('attachments')
             ->first();
 
@@ -99,7 +102,7 @@ class DocumentController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * 編輯文件.
      *
      * @param string $hashid
      *
@@ -107,15 +110,15 @@ class DocumentController extends Controller
      */
     public function edit($hashid)
     {
-        $document = Document::with(['attachments'])->findOrFail($this->transformHashid($hashid));
+        $document = Document::with(['attachments'])->findOrFail($this->decodeHashid($hashid));
 
-        $groups = Document::groupBy(['group'])->get(['group'])->pluck('group', 'group');
+        $groups = $this->groups();
 
         return view('documents.edit', compact('document', 'groups'));
     }
 
     /**
-     * Update a specific document.
+     * 更新文件.
      *
      * @param DocumentRequest $request
      * @param string $hashid
@@ -124,7 +127,7 @@ class DocumentController extends Controller
      */
     public function update(DocumentRequest $request, $hashid)
     {
-        $document = Document::with(['attachments'])->findOrFail($this->transformHashid($hashid));
+        $document = Document::with(['attachments'])->findOrFail($this->decodeHashid($hashid));
 
         $document->fill($request->only(['group', 'published']));
 
@@ -132,11 +135,11 @@ class DocumentController extends Controller
 
         $document->push();
 
-        return Response::redirectToRoute('documents.index');
+        return redirect()->route('documents.index');
     }
 
     /**
-     * Delete the specific document.
+     * 刪除文件.
      *
      * @param string $hashid
      *
@@ -144,26 +147,20 @@ class DocumentController extends Controller
      */
     public function destroy($hashid)
     {
-        Document::destroy($this->transformHashid($hashid));
+        Document::destroy($this->decodeHashid($hashid));
 
         return $this->ok();
     }
 
     /**
-     * Transform the hashid to original number.
+     * 文件群組.
      *
-     * @param string $hashid
-     *
-     * @return int
+     * @return \Illuminate\Support\Collection
      */
-    protected function transformHashid($hashid)
+    protected function groups()
     {
-        $ids = Hashids::decode($hashid);
-
-        if (empty($ids)) {
-            throw new NotFoundHttpException;
-        }
-
-        return $ids[0];
+        return Document::groupBy(['group'])
+            ->get(['group'])
+            ->pluck('group', 'group');
     }
 }

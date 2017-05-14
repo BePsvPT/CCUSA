@@ -1,8 +1,6 @@
 @extends('layouts.master')
 
-@section('title')
-  文件 |
-@endsection
+@section('title', '學生會二三事 | 國立中正大學學生會')
 
 @section('main')
   @if (Auth::check() && Auth::user()->hasRole('documents'))
@@ -15,11 +13,11 @@
     </div>
   @endif
 
-  @forelse($documents as $name => $group)
+  @forelse ($documents as $name => $group)
     <ul class="collection with-header">
       <li class="collection-header"><h5>{{ $name }}</h5></li>
 
-      @foreach($group as $document)
+      @foreach ($group as $document)
         @php($attachment = $document->getRelation('attachments')->first())
 
         <li class="collection-item document-item">
