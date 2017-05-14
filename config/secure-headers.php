@@ -174,7 +174,7 @@ return [
             ],
 
             'types' => [
-                'https:'
+                'https:',
             ],
 
             'self' => true,
