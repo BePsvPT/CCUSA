@@ -6,5 +6,5 @@ elixir.config.publicPath = 'public/assets';
 
 elixir(function(mix) {
   mix.sass(['app.scss'])
-    .scripts(['app.js', 'zinc-analytics.js']);
+    .scripts(['app.js']);
 });
