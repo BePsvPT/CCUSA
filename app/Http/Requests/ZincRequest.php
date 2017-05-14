@@ -23,7 +23,7 @@ class ZincRequest extends Request
         ];
 
         if ($this->isMethod('PATCH')) {
-            $rules['month'] = str_replace('NULL', $this->route('manage'), $rules['month']);
+            $rules['month'] = str_replace('NULL', $this->route('zinc'), $rules['month']);
         }
 
         return $rules;

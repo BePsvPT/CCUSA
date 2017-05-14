@@ -3,25 +3,27 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <meta property="og:title" content="{{ $zinc->getAttribute('topic') }} | 國立中正大學學生會會刊">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ Request::url() }}">
-    <meta property="og:image" content="{{ asset($zinc->getRelation('media')->shift()->getUrl()) }}">
-    <meta property="og:locale" content="zh_TW">
-    <title>國立中正大學學生會會刊</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.18/css/lightgallery.min.css">
-    {!! Html::style('assets/css/materialize.min.css') !!}
-    <style>*{font-family:"Microsoft yahei","Roboto",sans-serif}</style>
+
+    {!! $og->renderTags() !!}
+
+    <title>{{ $zinc->getAttribute('topic') }} | 國立中正大學學生會會刊</title>
+
+    {!! Html::style('assets/css/lightgallery.min.css') !!}
     {!! Html::script('assets/js/jquery.min.js') !!}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.18/js/lightgallery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.18/js/lg-thumbnail.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.18/js/lg-fullscreen.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.18/js/lg-zoom.min.js"></script>
-    {!! Html::script('assets/js/materialize.min.js') !!}
+    {!! Html::script('assets/js/lightgallery.min.js') !!}
+    {!! Html::script('assets/js/lg-thumbnail.min.js') !!}
+    {!! Html::script('assets/js/lg-fullscreen.min.js') !!}
+    {!! Html::script('assets/js/lg-zoom.min.js') !!}
+
+    <style>
+      html, body {
+        overflow: hidden;
+      }
+    </style>
   </head>
   <body>
-    <div class="container">
-      <h2 class="center">如未正常播放，請手動點擊第一張圖片！</h2>
+    <div>
+      <h2 style="text-align: center">如未正常播放，請手動點擊第一張圖片！</h2>
 
       <div id="ccusa-zinc">
         @foreach ($zinc->getRelation('media') as $media)

@@ -1,30 +1,14 @@
 @extends('layouts.master')
 
-@section('fetch-info')
-  <meta property="og:title" content="國立中正大學學生會會刊">
-  <meta property="og:url" content="{{ route('zinc.index') }}">
-  @foreach ($zincs as $zinc)
-    <meta property="og:image" content="{{ asset($zinc->getRelation('media')->first()->getUrl()) }}">
-  @endforeach
-@endsection
-
-@section('title')
-  ZINE |
-@endsection
+@section('title', 'ZINE | 國立中正大學學生會')
 
 @section('main')
   @if (Auth::check() && Auth::user()->hasRole(['zinc']))
     <div class="right-align">
       @include('components.internal-link', [
-        'href' => route('zinc.manage.index'),
+        'href' => route('zinc.manage'),
         'class' => 'btn waves-effect waves-light amber',
         'title' => '管理',
-      ])
-
-      @include('components.internal-link', [
-        'href' => route('zinc.manage.analytics'),
-        'class' => 'btn waves-effect waves-light light-blue',
-        'title' => '流量',
       ])
     </div>
   @endif
@@ -40,14 +24,14 @@
           <div class="card hoverable">
             <div class="card-image">
               <a
-                href="{{ route('zinc.show', ['year' => $zinc->getAttribute('year'), 'month' => $zinc->getAttribute('month')]) }}"
+                href="{{ route('zinc.show', $zinc->getAttribute('identify')) }}"
                 target="_blank"
-              ><img src="{{ $zinc->getRelation('media')->first()->getUrl() }}"></a>
+              ><img src="{{ $zinc->getFirstMediaUrl('zinc') }}"></a>
             </div>
 
-            <div class="card-action flow-text">
+            <div class="card-action">
               @include('components.external-link', [
-                'href' => route('zinc.show', ['year' => $zinc->getAttribute('year'), 'month' => $zinc->getAttribute('month')]),
+                'href' => route('zinc.show', $zinc->getAttribute('identify')),
                 'title' => $zinc->getAttribute('topic'),
               ])
             </div>
@@ -58,4 +42,6 @@
   @empty
     @include('components.empty-data')
   @endforelse
+
+  {!! $zincs->render() !!}
 @endsection

@@ -25,11 +25,11 @@ class Zinc extends Model implements HasMediaConversions
     public $timestamps = false;
 
     /**
-     * The attributes that are mass assignable.
+     * The attributes that aren't mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['year', 'month', 'topic', 'published', 'published_at'];
+    protected $guarded = [];
 
     /**
      * The attributes that should be mutated to dates.
@@ -39,13 +39,14 @@ class Zinc extends Model implements HasMediaConversions
     protected $dates = ['published_at'];
 
     /**
-     * The attributes that should be casted to native types.
+     * Get the zinc's identify.
      *
-     * @var array
+     * @return array
      */
-    protected $casts = [
-        'published' => 'boolean',
-    ];
+    public function getIdentifyAttribute()
+    {
+        return array_only($this->getAttributes(), ['year', 'month']);
+    }
 
     /**
      * Register the conversions that should be performed.
@@ -53,7 +54,7 @@ class Zinc extends Model implements HasMediaConversions
     public function registerMediaConversions()
     {
         $this->addMediaConversion('thumb')
-            ->setManipulations(['w' => 300])
+            ->width(300)
             ->performOnCollections('*')
             ->nonQueued();
     }

@@ -5,16 +5,11 @@ use Illuminate\Routing\Router;
 
 $router->get('/', ['as' => 'home', 'uses' => 'HomeController@home']);
 
-$router->group(['prefix' => 'zinc', 'namespace' => 'Zinc', 'as' => 'zinc.'], function (Router $router) {
-    $router->group(['middleware' => ['role:zinc']], function (Router $router) {
-        $router->get('manage/analytics', ['as' => 'manage.analytics', 'uses' => 'ManageController@analytics']);
-        $router->get('manage/analytics/data', ['as' => 'manage.analytics.data', 'uses' => 'ManageController@analyticsData']);
-        $router->resource('manage', 'ManageController', ['except' => ['show']]);
-    });
-
-    $router->get('/', ['as' => 'index', 'uses' => 'ZincController@index']);
-    $router->get('{year}/{month}', ['as' => 'show', 'uses' => 'ZincController@show']);
-});
+$router->get('zine/manage', ['as' => 'zinc.manage', 'uses' => 'ZincController@manage']);
+$router->resource('zine', 'ZincController', ['names' => 'zinc', 'except' => ['show']]);
+$router->get('zine/{year}/{month}', ['as' => 'zinc.show', 'uses' => 'ZincController@show']);
+// 重新導向會刊網址
+$router->get('zinc/{redirect?}', 'ZincController@redirect')->where('redirect', '.*');
 
 $router->resource('documents', 'DocumentController', ['parameters' => ['documents' => 'hashid']]);
 
