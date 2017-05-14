@@ -1,8 +1,6 @@
 @extends('layouts.master')
 
-@section('title')
-  登入 |
-@endsection
+@section('title', '登入 | 國立中正大學學生會')
 
 @section('main')
   <div class="row">
@@ -21,12 +19,7 @@
         {!! Form::password('password', ['class' => 'validate', 'required']) !!}
       </div>
 
-      <div class="input-field center">
-        <button class="btn waves-effect waves-light" type="submit">
-          <span>登入</span>
-          <i class="fa fa-paper-plane right"></i>
-        </button>
-      </div>
+      @include('components.submit-button', ['submitButton' => '登入'])
     {!! Form::close() !!}
   </div>
 @endsection

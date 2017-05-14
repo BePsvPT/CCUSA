@@ -20,6 +20,8 @@ class AuthController extends Controller
             return redirect()->home();
         }
 
+        $this->og->title('登入 | 國立中正大學學生會');
+
         return view('auth.sign-in');
     }
 
