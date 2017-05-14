@@ -140,12 +140,11 @@ return [
 
         'script-src' => [
             'allow' => [
-                'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/',
                 'https://www.google-analytics.com',
             ],
 
             'hashes' => [
-                // ['sha256' => 'hash-value'],
+                ['sha256' => 'Z1eJy5jCIuvxzNwl6abHy8QfeqA3uown3Nj5vnBBGA8='],
             ],
 
             'nonces' => [
@@ -161,7 +160,7 @@ return [
 
         'style-src' => [
             'allow' => [
-                'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/',
+                //
             ],
 
             'self' => true,
@@ -190,15 +189,11 @@ return [
          */
 
         'font-src' => [
-            'allow' => [
-                'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/'
-            ],
-
             'self' => true,
         ],
 
         'connect-src' => [
-            //
+            'self' => true,
         ],
 
         'form-action' => [

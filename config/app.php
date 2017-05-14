@@ -176,11 +176,12 @@ return [
          * Package Service Providers...
          */
         Bepsvpt\SecureHeaders\SecureHeadersServiceProvider::class,
+        ChrisKonnertz\OpenGraph\OpenGraphServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
-        Spatie\LaravelAnalytics\LaravelAnalyticsServiceProvider::class,
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
+        Spatie\Sitemap\SitemapServiceProvider::class,
         Vinkla\Hashids\HashidsServiceProvider::class,
 
     ],
@@ -230,11 +231,11 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
 
         'Agent'       => Jenssegers\Agent\Facades\Agent::class,
-        'Analytics'   => Spatie\LaravelAnalytics\LaravelAnalyticsFacade::class,
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
         'Form'        => Collective\Html\FormFacade::class,
         'Hashids'     => Vinkla\Hashids\Facades\Hashids::class,
         'Html'        => Collective\Html\HtmlFacade::class,
+        'OpenGraph'   => ChrisKonnertz\OpenGraph\OpenGraphFacade::class,
 
     ],
 
