@@ -4,22 +4,27 @@ namespace App\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
-use Session;
 
 class AuthController extends Controller
 {
     /**
-     * Get the sign in page.
+     * 登入頁面.
+     *
+     * @param Request $request
      *
      * @return \Illuminate\View\View
      */
-    public function signIn()
+    public function signIn(Request $request)
     {
+        if (! is_null($request->user())) {
+            return redirect()->home();
+        }
+
         return view('auth.sign-in');
     }
 
     /**
-     * Sign in to the application.
+     * 登入.
      *
      * @param Request $request
      *
@@ -35,15 +40,19 @@ class AuthController extends Controller
     }
 
     /**
-     * Sign out the application.
+     * 登出.
+     *
+     * @param Request $request
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function signOut()
+    public function signOut(Request $request)
     {
         Auth::logout();
 
-        Session::flush();
+        $request->session()->flush();
+
+        $request->session()->regenerate();
 
         return redirect()->home();
     }
