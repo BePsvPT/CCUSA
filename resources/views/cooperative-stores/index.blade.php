@@ -33,7 +33,7 @@
                 </a>
               </div>
 
-              <div class="card-action flow-text">
+              <div class="card-action">
                 @include('components.internal-link', [
                   'href' => route('cooperative-stores.show', ['cs' => $cs->getAttribute('link')]),
                   'title' => $cs->getAttribute('name'),
