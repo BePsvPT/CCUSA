@@ -4,17 +4,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
 
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="zh_TW">
-    @section('fetch-info')
-      <meta property="og:title" content="國立中正大學學生會">
-      <meta property="og:url" content="{{ route('home') }}">
-      <meta property="og:image" content="{{ asset('assets/media/images/general/logo/ccusa.png') }}">
-    @show
+    {!! $og->renderTags() !!}
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title') 國立中正大學學生會</title>
+    <title>@yield('title', '國立中正大學學生會')</title>
 
     {!! Html::style('assets/css/materialize.min.css') !!}
     {!! Html::style('assets/css/material-icons.css') !!}
