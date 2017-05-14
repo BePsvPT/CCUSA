@@ -52,7 +52,7 @@
           <td>{{ $cs->getAttribute('ended_at') }}</td>
           <td>{{ $cs->getAttribute('group') }}</td>
           <td>
-            @include('components.published-icon', ['published' => $cs->getAttribute('published')])
+            @include('components.published-icon', ['published' => ! is_null($cs->getAttribute('published_at'))])
           </td>
           <td>
             @include('components.internal-link', [

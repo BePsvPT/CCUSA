@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Hashids;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
-class CooperativeStore extends Model implements HasMediaConversions
+class CooperativeStore extends Model implements HasMedia
 {
     use HasMediaTrait;
 
@@ -18,13 +19,6 @@ class CooperativeStore extends Model implements HasMediaConversions
     protected $table = 'cooperative_stores';
 
     /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var bool
-     */
-    public $timestamps = false;
-
-    /**
      * The attributes that aren't mass assignable.
      *
      * @var array
@@ -32,13 +26,11 @@ class CooperativeStore extends Model implements HasMediaConversions
     protected $guarded = [];
 
     /**
-     * The attributes that should be casted to native types.
+     * The attributes that should be mutated to dates.
      *
      * @var array
      */
-    protected $casts = [
-        'published' => 'boolean',
-    ];
+    protected $dates = ['published_at'];
 
     /**
      * Get the cooperative store's link.
@@ -55,13 +47,26 @@ class CooperativeStore extends Model implements HasMediaConversions
     }
 
     /**
-     * Register the conversions that should be performed.
+     * 過濾已結束的特約商店.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function registerMediaConversions()
+    public function scopeActive($query)
     {
-        $this->addMediaConversion('thumb')
-            ->setManipulations(['w' => 300])
-            ->performOnCollections('*')
-            ->nonQueued();
+        return $query->where('ended_at', '>=', Carbon::now()->toDateString());
+    }
+
+    /**
+     * 過濾未發布的特約商店.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopePublished($query)
+    {
+        return $query->whereNotNull('published_at');
     }
 }

@@ -1,16 +1,6 @@
 @extends('layouts.master')
 
-@section('fetch-info')
-  <meta property="og:title" content="國立中正大學學生會特約商店">
-  <meta property="og:url" content="{{ route('cooperative-stores.index') }}">
-  @foreach ($css as $cs)
-    <meta property="og:image" content="{{ asset($cs->getFirstMedia('cs-cover')->getUrl()) }}">
-  @endforeach
-@endsection
-
-@section('title')
-  特約商店 |
-@endsection
+@section('title', '特約商店 | 國立中正大學學生會')
 
 @section('main')
   @if (Auth::check() && Auth::user()->hasRole(['cooperative-stores']))
@@ -27,8 +17,6 @@
     @include('components.empty-data')
   @else
     @include('cooperative-stores.side-nav', ['groups' => $groups])
-
-    <br><br>
 
     @foreach ($css->chunk(3) as $chunk)
       <div class="row">

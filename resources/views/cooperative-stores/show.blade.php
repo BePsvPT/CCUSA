@@ -1,21 +1,13 @@
 @extends('layouts.master')
 
-@section('fetch-info')
-  <meta property="og:title" content="{{ $cs->getAttribute('name')  }} | 國立中正大學學生會特約商店">
-  <meta property="og:url" content="{{ route('cooperative-stores.show', ['cs' => $cs->getAttribute('link')]) }}">
-  <meta property="og:image" content="{{ asset($cs->getFirstMedia('cs-cover')->getUrl()) }}">
-@endsection
-
-@section('title')
-  特約商店 - {{ $cs->getAttribute('name')  }} |
-@endsection
+@section('title', sprintf('%s | 國立中正大學學生會特約商店', $cs->getAttribute('name')))
 
 @section('main')
   <img
     class="materialboxed"
     style="margin: 1rem auto;"
     width="90%"
-    src="{{ $cs->getFirstMedia('cs-cover')->getUrl() }}"
+    src="{{ $cs->getFirstMediaUrl('cs-cover') }}"
   >
 
   <table class="cooperative-store-info">
@@ -70,7 +62,7 @@
     </tbody>
   </table>
 
-  @if(! $cs->getMedia('cs-gallery')->isEmpty())
+  @if (! $cs->getMedia('cs-gallery')->isEmpty())
     <div class="slider" style="width: 85%; margin: 1rem auto;">
       <ul class="slides">
         @foreach($cs->getMedia('cs-gallery') as $image)
