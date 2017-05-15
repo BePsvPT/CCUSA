@@ -2,7 +2,7 @@
 
 <div class="input-field">
   <i class="material-icons prefix">attach_file</i>
-  {!! Form::text('name', isset($document) ? $document->getRelation('attachments')->first()->getAttribute('name') : null, ['class' => 'validate', 'required', 'maxlength' => 32]) !!}
+  {!! Form::text('name', isset($document) ? $document->getRelation('attachments')->first()->getAttribute('name') : null, ['class' => 'validate', 'placeholder' => '需含副檔名', 'required', 'maxlength' => 32]) !!}
   {!! Form::label('name', '檔案名稱') !!}
 </div>
 
@@ -11,11 +11,7 @@
   {!! Form::text('group', null, ['list' => 'groupName', 'class' => 'validate', 'required', 'maxlength' => 32]) !!}
   {!! Form::label('group', '檔案群組') !!}
 
-  <datalist id="groupName">
-    @foreach($groups as $item)
-      <option value="{{ $item }}">{{ $item }}</option>
-    @endforeach
-  </datalist>
+  @include('components.datalist', compact('groups'))
 </div>
 
 <div>

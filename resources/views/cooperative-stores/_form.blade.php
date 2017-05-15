@@ -35,11 +35,7 @@
   {!! Form::text('group', null, ['list' => 'groupName', 'class' => 'validate', 'required', 'maxlength' => 48]) !!}
   {!! Form::label('group', '群組') !!}
 
-  <datalist id="groupName">
-    @foreach ($groups as $item)
-      <option value="{{ $item }}">{{ $item }}</option>
-    @endforeach
-  </datalist>
+  @include('components.datalist', compact('groups'))
 </div>
 
 <div class="input-field">

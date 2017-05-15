@@ -4,11 +4,11 @@
   rel="noopener noreferrer"
   class="{{ $class or '' }}"
 >
-  @if (isset($icon))
+  @isset($icon)
     <i class="fa fa-{{ is_array($icon) ? implode(' fa-', $icon) : $icon }}"></i>
-  @endif
+  @endisset
 
-  @if (isset($title))
+  @isset($title)
     <span>{{ $title }}</span>
-  @endif
+  @endisset
 </a>
