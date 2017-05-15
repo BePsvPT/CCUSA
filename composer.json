@@ -56,26 +56,26 @@
     ],
     "post-install-cmd": [
       "Illuminate\\Foundation\\ComposerScripts::postInstall",
-      "php artisan optimize"
+      "php artisan optimize --ansi"
     ],
     "post-update-cmd": [
       "Illuminate\\Foundation\\ComposerScripts::postUpdate",
       "php artisan ide-helper:generate",
       "php artisan ide-helper:meta",
-      "php artisan optimize"
+      "php artisan optimize --ansi"
     ],
     "upgrade": [
-      "php artisan down",
-      "php artisan view:clear",
-      "php artisan config:clear",
-      "php artisan route:clear",
-      "php artisan cache:clear",
+      "php artisan down --ansi",
+      "php artisan view:clear --ansi",
+      "php artisan config:clear --ansi",
+      "php artisan route:clear --ansi",
+      "php artisan cache:clear --ansi",
       "git pull --rebase",
-      "composer install --no-dev --ignore-platform-reqs -o",
-      "php artisan migrate --force",
-      "php artisan config:cache",
-      "php artisan route:cache",
-      "php artisan up"
+      "composer install --no-dev --ignore-platform-reqs -o --ansi",
+      "php artisan migrate --force --ansi",
+      "php artisan config:cache --ansi",
+      "php artisan route:cache --ansi",
+      "php artisan up --ansi"
     ]
   }
 }
