@@ -22,7 +22,7 @@
 
         <li class="collection-item document-item">
           @include('components.external-link', [
-            'href' => route('documents.show', ['hashid' => $document->getHashId()]),
+            'href' => route('documents.show', ['hashid' => sprintf('%s-%s', $attachment->getAttribute('name'), $document->getHashId())]),
             'title' => $attachment->getAttribute('name'),
           ])
 
