@@ -27,7 +27,7 @@ class DocumentController extends Controller
      */
     public function index()
     {
-        $documents = Document::with(['attachments'])
+        $documents = Document::with('attachments')
             ->guest()
             ->latest()
             ->get(['id', 'group', 'published'])

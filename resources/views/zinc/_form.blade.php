@@ -1,12 +1,12 @@
 @include('layouts.form-errors')
 
 <div class="input-field">
-  {!! Form::select('year', \App\Models\Zinc::year(), isset($zinc) ? null : $now->year, ['required']) !!}
+  {!! Form::select('year', \App\Models\Zinc::year(), isset($zinc) ? null : \Carbon\Carbon::now()->year, ['required']) !!}
   {!! Form::label('year', '年份') !!}
 </div>
 
 <div class="input-field">
-  {!! Form::select('month', \App\Models\Zinc::month(), isset($zinc) ? null : $now->month, ['required']) !!}
+  {!! Form::select('month', \App\Models\Zinc::month(), isset($zinc) ? null : \Carbon\Carbon::now()->month, ['required']) !!}
   {!! Form::label('month', '月份') !!}
 </div>
 
