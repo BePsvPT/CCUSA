@@ -16,6 +16,10 @@ $router->resource('documents', 'DocumentController', ['parameters' => ['document
 $router->get('cooperative-stores/manage', ['as' => 'cooperative-stores.manage', 'uses' => 'CooperativeStoreController@manage']);
 $router->resource('cooperative-stores', 'CooperativeStoreController', ['parameters' => ['cooperative-stores' => 'cs']]);
 
+$router->resource('recruitment', 'RecruitmentController', ['parameters' => ['recruitment' => 're']]);
+
+
+
 $router->group(['prefix' => 'auth', 'as' => 'auth.'], function (Router $router) {
     $router->get('sign-in', ['as' => 'sign-in', 'uses' => 'AuthController@signIn']);
     $router->post('sign-in', ['as' => 'sign-in', 'uses' => 'AuthController@auth']);
