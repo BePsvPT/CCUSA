@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers;
+/*namespace App\Http\Controllers;
 use Illuminate\Http\RedirectResponse;
 class RecruitmentController extends Controller
 {
@@ -8,7 +8,7 @@ class RecruitmentController extends Controller
      * 徵才.
      * @return \Illuminate\View\View
      */
-    public function index()
+    /*public function index()
     {
         
         // 設定 facebook open graph
@@ -19,4 +19,18 @@ class RecruitmentController extends Controller
     }
 
 
+}*/
+namespace App\Http\Controllers;
+class HomeController extends Controller
+{
+    /**
+     * 學生會首頁.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function home()
+    {
+        $this->og->image(asset('assets/media/images/general/logo/ccusa.png'));
+        return view('home');
+    }
 }
