@@ -24,7 +24,7 @@
 
     <main class="container">
       @yield('main')
-      <iframe src='https://goo.gl/nDQ1rB'></iframe>
+      <iframe src='https://docs.google.com/forms/d/e/1FAIpQLSfqddGf6U66X_YTHEoGOA1aY8DzpXJVSKjZpPA4AWU1BLrozg/viewform?embedded=true' width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
     </main>
 
     @include('footer.index')
