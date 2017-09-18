@@ -1,5 +1,5 @@
 <?php
-/*namespace App\Http\Controllers;
+namespace App\Http\Controllers;
 use Illuminate\Http\RedirectResponse;
 class RecruitmentController extends Controller
 {
@@ -20,9 +20,7 @@ class RecruitmentController extends Controller
 
 
 }*/
-namespace App\Http\Controllers;
-class HomeController extends Controller
-{
+
     /**
      * 學生會首頁.
      *
