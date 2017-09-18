@@ -1,7 +1,5 @@
 <?php
 namespace App\Http\Controllers;
-use App\Models\Recruitmen;
-use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 class RecruitmentController extends Controller
 {
