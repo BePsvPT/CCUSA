@@ -8,7 +8,7 @@ class RecruitmentController extends Controller
      * 徵才.
      * @return \Illuminate\View\View
      */
-    public function index(Request $request)
+    public function index()
     {
         
         // 設定 facebook open graph
