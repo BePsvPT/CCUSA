@@ -19,4 +19,3 @@ class RecruitmentController extends Controller
 
 
 }
-}
