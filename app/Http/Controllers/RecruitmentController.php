@@ -5,14 +5,7 @@ use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 class RecruitmentController extends Controller
 {
-    /**
-     * Constructor.
-     */
-    public function __construct()
-    {
-        parent::__construct();
-        $this->middleware('role:recruitmen', ['except' => ['index', 'show']]);
-    }
+
     /**
      * 徵才.
      * @return \Illuminate\View\View
