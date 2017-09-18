@@ -1,9 +1,7 @@
 <?php
 namespace App\Http\Controllers;
-use App\Http\Requests\CooperativeStoreRequest;
-use App\Models\CooperativeStore;
+use App\Models\Recruitmen;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 class RecruitmentController extends Controller
 {
@@ -13,7 +11,7 @@ class RecruitmentController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->middleware('role:recruitmen-stores', ['except' => ['index', 'show']]);
+        $this->middleware('role:recruitmen', ['except' => ['index', 'show']]);
     }
     /**
      * 徵才.
