@@ -16,7 +16,7 @@ $router->resource('documents', 'DocumentController', ['parameters' => ['document
 $router->get('cooperative-stores/manage', ['as' => 'cooperative-stores.manage', 'uses' => 'CooperativeStoreController@manage']);
 $router->resource('cooperative-stores', 'CooperativeStoreController', ['parameters' => ['cooperative-stores' => 'cs']]);
 
-$router->resource('recruitment', 'RecruitmentController', ['parameters' => ['recruitment' => 're']]);
+$router->get('recruitment', ['as' => 'recruitment', 'uses' => 'RecruitmentController@index']);
 
 
 
