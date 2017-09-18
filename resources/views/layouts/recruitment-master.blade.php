@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
 
     {!! $og->renderTags() !!}
+    <meta property="og:url" content="https://ccusa.ccu.edu.tw/recruitment">
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
