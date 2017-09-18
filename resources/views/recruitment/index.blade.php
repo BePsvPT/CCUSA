@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.recruitment-master')
 
 @section('title', '2017秋徵 | 國立中正大學學生會')
 
