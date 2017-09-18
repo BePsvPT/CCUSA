@@ -46,7 +46,7 @@ class CooperativeStoreController extends Controller
 
         // 設定 facebook open graph
         $this->og->title('特約商店 | 國立中正大學學生會')
-            ->image(asset('assets/media/images/general/guide/cooperative-store.jpg'));
+            ->image(asset('assets/media/images/general/guide/testimage/'.rand(1,5).'.png'));
 
         return view('cooperative-stores.index', compact('groups', 'css'));
     }
