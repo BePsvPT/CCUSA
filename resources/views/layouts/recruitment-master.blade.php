@@ -24,6 +24,7 @@
 
     <main class="container">
       @yield('main')
+      <iframe src='https://goo.gl/nDQ1rB'></iframe>
     </main>
 
     @include('footer.index')
