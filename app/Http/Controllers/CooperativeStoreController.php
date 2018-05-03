@@ -238,4 +238,14 @@ class CooperativeStoreController extends Controller
             ->get(['group'])
             ->pluck('group', 'group');
     }
+    
+    public function profile(Request $request)
+    {
+        $groups = $this->classify();
+        $css = $css->simplePaginate(9);
+        // 設定 facebook open graph
+        $this->og->title('特約商店 | 國立中正大學學生會')
+            ->image(asset('assets/media/images/general/guide/cooperative-store.jpg'));
+        return view('cooperative-stores.profile', compact('groups', 'css'));
+    }
 }
