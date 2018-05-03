@@ -8,5 +8,4 @@
     <div>
       聯盟介紹
      </div>
-  @endif
 @endsection
