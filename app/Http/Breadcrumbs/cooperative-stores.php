@@ -32,3 +32,9 @@ Breadcrumbs::register('cooperative-stores.edit', function (Generator $generator,
 
     $generator->push('編輯', route('cooperative-stores.edit', ['cs' => $cs]));
 });
+
+Breadcrumbs::register('cooperative-stores.profile', function (Generator $generator, $cs) {
+    $generator->parent('cooperative-stores.index');
+
+    $generator->push('簡介', route('cooperative-stores.profile', ['cs' => $cs]));
+});
