@@ -108,6 +108,12 @@ class CooperativeStoreController extends Controller
 
         return view('cooperative-stores.create', compact('groups'));
     }
+    
+    public function profile()
+    {
+        $groups = $this->groups();
+        return view('cooperative-stores.profile', compact('groups'));
+    }
 
     /**
      * 新增特約商店.
@@ -237,15 +243,5 @@ class CooperativeStoreController extends Controller
         return CooperativeStore::groupBy(['group'])
             ->get(['group'])
             ->pluck('group', 'group');
-    }
-    
-    public function profile(Request $request)
-    {
-        $groups = $this->classify();
-        $css = $css->simplePaginate(9);
-        // 設定 facebook open graph
-        $this->og->title('特約商店 | 國立中正大學學生會')
-            ->image(asset('assets/media/images/general/guide/cooperative-store.jpg'));
-        return view('cooperative-stores.profile', compact('groups', 'css'));
     }
 }
