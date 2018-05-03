@@ -8,7 +8,5 @@
     <div>
       聯盟介紹
      </div>
-
-    {!! $css->render() !!}
   @endif
 @endsection
