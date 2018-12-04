@@ -1,5 +1,5 @@
 <?php
-/*
+
 namespace App\Http\Controllers;
 
 class ProfileController extends Controller
@@ -10,4 +10,3 @@ class ProfileController extends Controller
         return view('profile.index');
     }
 }
-*/
