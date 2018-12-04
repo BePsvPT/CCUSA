@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section('title', 'ZINE | 國立中正大學學生會')
+
 @section('main')
     <div class="row">
         <button  id="heading_center" class="col" data-toggle="collapse" data-target="#center_collapse" >
