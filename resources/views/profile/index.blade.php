@@ -4,9 +4,9 @@
 
 @section('main')
     <div class="row">
-        <div  id="heading_center" class="col" data-toggle="collapse" data-target="#center_collapse" >
+        <button  id="heading_center" class="col btn text-left container-fluid collapsed" data-toggle="collapse" data-target="#center_collapse" >
             行政中心
-        </div>
+        </button>
         <div class="col">
             <div class="collapse" id="center_collapse"  data-parent="#data_view">
                 <p>
