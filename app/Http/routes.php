@@ -24,4 +24,4 @@ $router->group(['prefix' => 'auth', 'as' => 'auth.'], function (Router $router) 
     $router->get('sign-out', ['as' => 'sign-out', 'uses' => 'AuthController@signOut']);
 });
 
-$router->get('profile', ['as' => 'profile', 'uses' => 'ProfileController@index']);
+$router->get('profile', 'ProfileController@index');
