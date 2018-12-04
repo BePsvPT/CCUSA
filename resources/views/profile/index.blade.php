@@ -30,9 +30,7 @@
 
     <div class="row">
         <details>
-            <div class="row">
-                <summary class="col btn text-left container-fluid">行政中心</summary>
-            </div>
+            <summary class="col btn text-left container-fluid">行政中心</summary>
             <div class="row">
                 <div class="col">
                     <div class="" id="center_collapse">
@@ -54,9 +52,7 @@
 
     <div class="row">
         <details>
-            <div class="row">
-                <summary class="col btn text-left container-fluid">學生議會</summary>
-            </div>
+            <summary class="col btn text-left container-fluid">學生議會</summary>
             <div class="row">
                 <div class="col">
                     <div class="" id="metting_collapse">
@@ -81,9 +77,7 @@
 
     <div class="row">
         <details>
-            <div class="row">
-                <summary class="col btn text-left container-fluid">評議委員會</summary>
-            </div>
+            <summary class="col btn text-left container-fluid">評議委員會</summary>
             <div class="row">
                 <div class="col">
                     <div class="" id="">
