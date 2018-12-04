@@ -28,4 +28,13 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="row">
+            <details>
+                <summary class="col btn text-left container-fluid">行政中心</summary>
+                <p>會長 - XXX</p>
+                <p> XXX 系 ........</p>
+            </details>
+        </div>
+    </div>
 @endsection
